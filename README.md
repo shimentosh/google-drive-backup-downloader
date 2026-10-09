@@ -146,7 +146,16 @@ That's it. Run it again whenever you like, and only the changes are downloaded.
 
 ---
 
-## New in 1.1.0
+## New in 1.2.0
+
+- **Guided first-run setup.** The welcome screen walks you through Google's one-time setup
+  in 5 numbered steps, each with an **Open** button that jumps to the exact Google Cloud page.
+- **[Illustrated setup guide](https://shimentosh.github.io/google-drive-backup-downloader/setup.html)**
+  in English and বাংলা, with a fix for every common Google error.
+- **Plain-language errors.** "Access blocked", `redirect_uri_mismatch`, a disabled Drive API
+  and the weekly sign-out are each explained with the exact fix.
+
+### 1.1.0
 
 - **Keeps your PC awake** while a backup is downloading, so Windows sleep no longer
   interrupts long runs (Settings → *While a backup runs*). A paused backup lets the PC sleep
@@ -268,55 +277,71 @@ yours, and nobody else's app is involved. Setup takes about five minutes:
 
 ## Google Cloud setup
 
-The app talks to Google directly, so it needs **your own** OAuth client. Setting it up takes
-about five minutes and is free. You will never type your Google password into this app.
+> 📖 **Illustrated step-by-step guide (English & বাংলা): https://shimentosh.github.io/google-drive-backup-downloader/setup.html**
+
+The app talks to Google directly with **your own** key, so no third-party server ever touches
+your files. It gets read-only access (it cannot delete or change anything), and you never type
+your Google password into the app. This is a one-time setup: about five minutes, free, no
+credit card.
 
 ```
-Google Cloud Console
+Create a Google Cloud project
         ↓
-Create a project
+Turn on the Google Drive API
         ↓
-Enable the Google Drive API
+Google Auth platform → Branding (consent screen)
         ↓
-Configure the OAuth consent screen
+Google Auth platform → Audience → add yourself as a test user
         ↓
-Create an OAuth client (type: Desktop app)
+Google Auth platform → Clients → Create client (type: Desktop app) → Download JSON
         ↓
-Download credentials.json
-        ↓
-Place it where the app can find it
+Give the JSON file to the app → Connect Google Drive
 ```
 
 ### Step by step
 
-1. **Create a project**
-   Go to <https://console.cloud.google.com/> → project dropdown → **New project**.
-   Name it anything (for example `drive-backup`) and create it.
+1. **Create a Google Cloud project**
+   Open <https://console.cloud.google.com/projectcreate> and sign in with the same Gmail you
+   want to back up. Name the project anything (for example `drive-backup`) → **Create**. Wait
+   about 10 seconds and make sure the new project is selected in the project picker in the
+   top bar.
 
-2. **Enable the Drive API**
-   **APIs & Services → Library** → search for **Google Drive API** → **Enable**.
+2. **Turn on the Google Drive API**
+   Open <https://console.cloud.google.com/flows/enableapi?apiid=drive.googleapis.com>, confirm
+   the project → **Next** / **Enable**. (If the page shows an **Enable** button, click it.)
 
-3. **Configure the OAuth consent screen**
-   **APIs & Services → OAuth consent screen**
-   - User type: **External** (in a Workspace organisation, *Internal* is fine)
-   - App name: anything, for example `Drive Backup`
-   - User support e-mail and developer e-mail: your address
-   - **Scopes**: you can leave this empty. The app requests its scope when you sign in.
-   - **Test users**: **add your own Google account here.** While the consent screen is in
-     *Testing* mode, only listed test users can sign in. Leaving this out is the most common
-     setup mistake.
-   - Save.
+3. **Set up the Google Auth platform (consent screen)**
+   Open <https://console.cloud.google.com/auth/branding>. If it says *"Google Auth platform not
+   configured yet"*, click **Get Started**.
+   - **App Information**: App name (for example `My Drive Backup`), User support email (your
+     Gmail) → **Next**
+   - **Audience**: choose **External** → **Next**
+   - **Contact Information**: your email → **Next**
+   - **Finish**: tick *"I agree to the Google API Services: User Data Policy"* → **Continue** →
+     **Create**
 
-4. **Create the OAuth client**
-   **APIs & Services → Credentials → Create credentials → OAuth client ID**
-   - Application type: **Desktop app**. This matters: a *Web application* client will be
-     rejected, because this app uses a loopback redirect.
-   - Name: anything. Create.
+4. **Add yourself as a test user**
+   Open <https://console.cloud.google.com/auth/audience> → under **Test users** click
+   **Add users** → type your Gmail → **Save**.
+   This is the #1 mistake. Without it, Google shows *"Access blocked: … has not completed the
+   Google verification process"* / *Error 403: access_denied*.
 
-5. **Download `credentials.json`**
-   Click the download icon next to the new client and save the JSON file.
+5. **Create the Desktop app key**
+   Open <https://console.cloud.google.com/auth/clients> → **Create Client** → Application type:
+   **Desktop app** (*not* Web application, which causes *Error 400: redirect_uri_mismatch*) →
+   name it anything → **Create**.
 
-6. **Place the file** in any one of these locations (searched in this order):
+   > ⚠️ **Click Download JSON right away.** A dialog shows your Client ID and Client secret.
+   > Google shows the secret only once; if you close the dialog without downloading, just
+   > create a new client. Keep the file private: never share or upload it.
+
+6. **Give the file to the app**
+   Open the app. On the welcome screen click **Choose downloaded JSON file…**, drag the `.json`
+   file onto the window, or paste the Client ID and Client secret. (The in-app wizard walks you
+   through the same steps.)
+
+   Advanced alternatives: the app also looks for the file in these locations (in this order),
+   or you can pick it in **Settings → Advanced → OAuth client file**:
 
    ```
    the path in the GDBD_CREDENTIALS_FILE environment variable
@@ -325,18 +350,29 @@ Place it where the app can find it
    the folder containing app.py (or the .exe)
    ```
 
-   You can also pick it in the app: **Settings → Advanced → OAuth client file**.
-
-   Instead of a file, you can set two environment variables (see `.env.example`):
+   Or set two environment variables (see `.env.example`):
 
    ```
    GDBD_CLIENT_ID=...apps.googleusercontent.com
    GDBD_CLIENT_SECRET=GOCSPX-...
    ```
 
-> **A note on "unverified app".** Because the OAuth client is yours and only you use it,
-> Google shows an *"App isn't verified"* screen. Click **Advanced → Go to … (unsafe)**.
-> Verification is only required to distribute an app to other people.
+7. **Connect your Google account**
+   Click **Connect Google Drive**. Your browser opens; choose your account. Google shows
+   *"Google hasn't verified this app"*. This is expected, because **you** are the developer of
+   your own private key: click **Continue** (if you only see **Advanced**, click **Advanced →
+   Go to &lt;app name&gt; (unsafe)**). On the permission screen, tick *"See and download all
+   your Google Drive files"* (wording may vary slightly) → **Continue**. When the browser says
+   you can close the tab, the app shows your account. Choose a destination folder and click
+   **Back Up Entire Drive**.
+
+### Optional but recommended: stop the weekly re-login
+
+While the app is in *Testing* mode, Google signs you out every 7 days (refresh tokens for
+Testing apps expire after a week). To avoid this, open
+<https://console.cloud.google.com/auth/audience> → **Publishing status** → **Publish app** →
+**Confirm**. Personal use (under 100 users) does not need Google verification; you will still
+click through the "unverified app" screen once.
 
 ---
 
@@ -478,7 +514,7 @@ without leaking your OAuth client. Place it next to the `.exe` or in
 
 ### Releases
 
-Releases are automated. Pushing a tag that matches `v*` (for example `v1.1.0`) triggers
+Releases are automated. Pushing a tag that matches `v*` (for example `v1.2.0`) triggers
 [`.github/workflows/release.yml`](.github/workflows/release.yml), which runs the tests, builds
 both variants on Windows and publishes a GitHub Release with two files:
 
@@ -488,8 +524,8 @@ both variants on Windows and publishes a GitHub Release with two files:
 | `GoogleDriveBackupDownloader-windows.zip` | Folder build that starts faster. Unzip it, then run `GoogleDriveBackupDownloader.exe`. |
 
 ```powershell
-git tag v1.1.0
-git push origin v1.1.0
+git tag v1.2.0
+git push origin v1.2.0
 ```
 
 ---
@@ -589,12 +625,31 @@ directly.
 You downloaded the wrong credential type. Create a new OAuth client with application type
 **Desktop app**.
 
-**"Access was denied on the Google consent screen"**
-Your consent screen is in *Testing* mode and your account isn't listed. Add it under
-**OAuth consent screen → Test users**.
+**"Access was denied on the Google consent screen" / "Access blocked" / Error 403: access_denied**
+Your app is in *Testing* mode and your account isn't listed. Add it under
+**Google Auth platform → Audience → Test users**
+(<https://console.cloud.google.com/auth/audience>), or publish the app (see
+[stop the weekly re-login](#optional-but-recommended-stop-the-weekly-re-login)).
 
-**"App isn't verified"**
-This is expected for a personal OAuth client. Click **Advanced → Go to … (unsafe)**.
+**"Google hasn't verified this app"**
+This is expected for a personal OAuth client, because you are its developer. Click
+**Continue** (or **Advanced → Go to &lt;app name&gt; (unsafe)** if that is all you see).
+
+**Error 400: redirect_uri_mismatch**
+The OAuth client is the wrong type. Create a new client with application type **Desktop app**.
+
+**"Google Drive API has not been used in project … or it is disabled"**
+Turn on the Drive API in the *same* project as your OAuth client (step 2), then wait a few
+minutes and try again.
+
+**Lost the client secret**
+Google shows it only once. Create a new client under **Google Auth platform → Clients** and
+click **Download JSON** right away.
+
+**Signed out / asked to sign in again after 7 days**
+Google expires sign-ins for *Testing* apps after 7 days. Publish the app:
+**Google Auth platform → Audience → Publishing status → Publish app**. See
+[stop the weekly re-login](#optional-but-recommended-stop-the-weekly-re-login).
 
 **"Windows protected your PC" (SmartScreen)**
 The executable isn't code-signed. Click **More info → Run anyway**, or build it from source.

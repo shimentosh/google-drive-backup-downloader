@@ -299,7 +299,61 @@ class TestWelcomePage:
     def test_missing_credentials_blocks_connect(self, window):
         window.welcome.set_credentials_missing(True)
         assert not window.welcome.connect_button.isEnabled()
-        assert not window.welcome.banner.isHidden()
+        assert not window.welcome.setup_panel.isHidden()
+
+    def test_setup_wizard_links_every_console_step(self, window):
+        from gdbd.ui.welcome import SETUP_STEPS
+
+        assert len(window.welcome.step_rows) == len(SETUP_STEPS) == 5
+        urls = [url for *_rest, url in SETUP_STEPS]
+        assert all(url.startswith("https://console.cloud.google.com/") for url in urls)
+        assert any("drive.googleapis.com" in url for url in urls)
+
+    def test_paste_fallback_is_folded_away(self, window):
+        window.welcome.set_credentials_missing(True)
+        assert window.welcome.paste_box.isHidden()
+        window.welcome.paste_toggle.click()
+        assert not window.welcome.paste_box.isHidden()
+
+    def test_connecting_explains_googles_screens(self, window):
+        window.welcome.set_credentials_missing(False, "123-x")
+        window.welcome.set_state(AppState.AUTHENTICATING)
+        assert "verified" in window.welcome.status.text()
+        assert "Continue" in window.welcome.status.text()
+
+
+class TestGoogleErrorHelp:
+    """Raw Google errors are rewritten into steps a beginner can follow."""
+
+    def test_disabled_api_points_to_the_enable_page(self):
+        from gdbd.auth.google_auth import explain_google_error
+
+        text = explain_google_error(
+            "Google Drive API has not been used in project 123 before or it is disabled."
+        )
+        assert "enableapi?apiid=drive.googleapis.com" in text
+
+    def test_expired_token_mentions_the_seven_day_testing_limit(self):
+        from gdbd.auth.google_auth import explain_google_error
+
+        assert "7 days" in explain_google_error("invalid_grant: Token has been expired")
+
+    def test_access_denied_names_the_test_user_fix(self):
+        from gdbd.auth.google_auth import _friendly_auth_error
+
+        text = _friendly_auth_error(Exception("access_denied"))
+        assert "Audience" in text and "Test users" in text
+
+    def test_unticked_drive_permission_is_explained(self):
+        from gdbd.auth.google_auth import _friendly_auth_error
+
+        text = _friendly_auth_error(Warning("Scope has changed from x to y."))
+        assert "tick the box" in text
+
+    def test_unknown_errors_pass_through(self):
+        from gdbd.auth.google_auth import explain_google_error
+
+        assert explain_google_error("disk on fire") == "disk on fire"
 
     def test_present_credentials_enable_connect(self, window):
         window.welcome.set_credentials_missing(False)

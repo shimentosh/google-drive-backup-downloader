@@ -90,6 +90,11 @@ def main() -> None:
             win = build(app, palette, Path(tmp))
             win.show()
 
+            # First run: the setup wizard
+            win.welcome.set_credentials_missing(True)
+            win._on_state(AppState.DISCONNECTED)
+            snap(app, win, f"welcome-setup{suffix}")
+
             # Welcome
             win.welcome.set_credentials_missing(False, "1234567890-demo")
             win._on_state(AppState.DISCONNECTED)

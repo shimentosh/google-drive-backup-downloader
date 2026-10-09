@@ -5,7 +5,7 @@ from __future__ import annotations
 APP_NAME = "Google Drive Backup Downloader"
 APP_SHORT_NAME = "GDriveBackup"
 APP_SUBTITLE = "Complete Google Drive Backup"
-APP_VERSION = "1.1.0"
+APP_VERSION = "1.2.0"
 ORG_NAME = "GDriveBackup"
 AUTHOR_NAME = "Shimanto"
 
@@ -15,7 +15,7 @@ WEBSITE_URL = "https://shimentosh.github.io/google-drive-backup-downloader/"
 AUTHOR_URL = "https://shimanto.xyz"
 ISSUES_URL = f"{REPO_URL}/issues"
 RELEASES_URL = f"{REPO_URL}/releases/latest"
-SETUP_GUIDE_URL = f"{REPO_URL}#google-cloud-setup"
+SETUP_GUIDE_URL = f"{WEBSITE_URL}setup.html"
 
 #: Suffix used for in-progress downloads. Renamed to the final name only after
 #: the download has been verified.

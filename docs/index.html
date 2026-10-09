@@ -47,7 +47,7 @@
   "url": "https://shimentosh.github.io/google-drive-backup-downloader/",
   "operatingSystem": "Windows 10, Windows 11",
   "applicationCategory": "UtilitiesApplication",
-  "softwareVersion": "1.1.0",
+  "softwareVersion": "1.2.0",
   "datePublished": "2026-10-09",
   "downloadUrl": "https://github.com/shimentosh/google-drive-backup-downloader/releases/latest",
   "installUrl": "https://github.com/shimentosh/google-drive-backup-downloader/releases/latest",
@@ -474,6 +474,7 @@ footer{border-top:1px solid var(--border);padding:44px 0 36px;margin-top:96px;co
         <li><a href="#features">Features</a></li>
         <li><a href="#how-it-works">How it works</a></li>
         <li><a href="#faq">FAQ</a></li>
+        <li><a href="setup.html">Setup guide</a></li>
       </ul>
     </nav>
     <div class="nav-actions">
@@ -491,7 +492,7 @@ footer{border-top:1px solid var(--border);padding:44px 0 36px;margin-top:96px;co
   <section class="hero" id="top" aria-labelledby="hero-title">
     <div class="grid-bg" aria-hidden="true"></div>
     <div class="wrap">
-      <a class="pill" href="https://github.com/shimentosh/google-drive-backup-downloader/releases/latest"><b>v1.1.0</b> Keeps your PC awake &amp; notifies when done</a>
+      <a class="pill" href="https://github.com/shimentosh/google-drive-backup-downloader/releases/latest"><b>v1.2.0</b> New: guided 5-minute setup</a>
       <h1 id="hero-title">Back up your <span class="grad">entire Google Drive</span> to your PC</h1>
       <p class="lede">Google Drive Backup Downloader copies your whole Drive to a local folder or external disk in one click &mdash; same folder structure, resumable downloads, and later runs fetch only what changed.</p>
       <div class="cta-row">
@@ -507,7 +508,7 @@ footer{border-top:1px solid var(--border);padding:44px 0 36px;margin-top:96px;co
         <li><svg aria-hidden="true"><use href="#i-check"/></svg>Read-only access</li>
         <li><svg aria-hidden="true"><use href="#i-check"/></svg>No uploads</li>
       </ul>
-      <p class="meta-note">Windows 10 / 11 &middot; MIT license &middot; Version 1.1.0</p>
+      <p class="meta-note">Windows 10 / 11 &middot; MIT license &middot; Version 1.2.0</p>
 
       <div class="shot-wrap reveal">
         <div class="window">
@@ -665,7 +666,7 @@ footer{border-top:1px solid var(--border);padding:44px 0 36px;margin-top:96px;co
           <h3>Create your free Google OAuth client</h3>
           <p>In Google Cloud Console, enable the Drive API and create a <strong>Desktop app</strong> OAuth client. Download <code>credentials.json</code>. It&rsquo;s free and only done once.</p>
           <span class="time">About 5 minutes, one time</span><br>
-          <a class="more" href="https://github.com/shimentosh/google-drive-backup-downloader#google-cloud-setup">Step-by-step setup guide <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a class="more" href="setup.html">Step-by-step setup guide <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
         </li>
         <li class="step reveal">
           <span class="step-num" aria-hidden="true">2</span>
@@ -683,7 +684,7 @@ footer{border-top:1px solid var(--border);padding:44px 0 36px;margin-top:96px;co
       </ol>
       <div class="note reveal">
         <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg>
-        <p><strong>First launch:</strong> the .exe isn&rsquo;t code-signed, so Windows SmartScreen may say &ldquo;Windows protected your PC&rdquo;. Click <strong>More info &rarr; Run anyway</strong>. Google will also show &ldquo;App isn&rsquo;t verified&rdquo; for your personal client &mdash; choose <strong>Advanced &rarr; Go to&hellip;</strong>, which is expected because the client is yours.</p>
+        <p><strong>First launch:</strong> the .exe isn&rsquo;t code-signed, so Windows SmartScreen may say &ldquo;Windows protected your PC&rdquo;. Click <strong>More info &rarr; Run anyway</strong>. Google will also show &ldquo;Google hasn&rsquo;t verified this app&rdquo; for your personal key &mdash; click <strong>Continue</strong>; that is expected because the key is yours. <a href="setup.html#step-7">See every screen in the setup guide</a>.</p>
       </div>
     </div>
   </section>
@@ -846,9 +847,9 @@ footer{border-top:1px solid var(--border);padding:44px 0 36px;margin-top:96px;co
         <p>Free, open source and read-only. Set it up once, then keep your backup current with a single click.</p>
         <div class="cta-row">
           <a class="btn btn-primary btn-lg" href="https://github.com/shimentosh/google-drive-backup-downloader/releases/latest"><svg aria-hidden="true"><use href="#i-windows"/></svg>Download for Windows</a>
-          <a class="btn btn-ghost btn-lg" href="https://github.com/shimentosh/google-drive-backup-downloader#google-cloud-setup">Read the setup guide <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a class="btn btn-ghost btn-lg" href="setup.html">Read the setup guide <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
         </div>
-        <p class="meta-note">Version 1.1.0 &middot; Windows 10 / 11 &middot; MIT license</p>
+        <p class="meta-note">Version 1.2.0 &middot; Windows 10 / 11 &middot; MIT license</p>
       </div>
     </div>
   </section>

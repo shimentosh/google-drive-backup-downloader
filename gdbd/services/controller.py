@@ -18,6 +18,7 @@ from ..auth.google_auth import (
     AuthError,
     CredentialsNotConfigured,
     GoogleAuthenticator,
+    explain_google_error,
     install_client_config,
 )
 from ..config.settings import AppContext, EXISTING_SKIP
@@ -231,7 +232,7 @@ class AppController(QObject):
     def _on_auth_error(self, title: str, message: str) -> None:
         self._account = None
         self.set_state(AppState.DISCONNECTED)
-        self.error.emit(title, message)
+        self.error.emit(title, explain_google_error(message))
 
     def disconnect_account(self, forget_local_state: bool = False) -> None:
         """Sign out. Local files are never touched."""
@@ -289,7 +290,7 @@ class AppController(QObject):
     def _on_scan_error(self, title: str, message: str) -> None:
         self._scan_runner = None
         self.set_state(AppState.CONNECTED)
-        self.error.emit(title, message)
+        self.error.emit(title, explain_google_error(message))
 
     def cancel_scan(self) -> None:
         """Stop an in-flight scan."""

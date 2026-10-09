@@ -1,0 +1,1175 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to Connect Google Drive – Setup Guide | Google Drive Backup Downloader</title>
+<meta name="description" content="Illustrated step-by-step guide (English &amp; বাংলা) to connect your Gmail / Google Drive to Google Drive Backup Downloader. One-time setup, about 5 minutes, free, no credit card.">
+<meta name="author" content="Shimanto">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://shimentosh.github.io/google-drive-backup-downloader/setup.html">
+<meta name="theme-color" content="#0a0e17" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f6f8fc" media="(prefers-color-scheme: light)">
+<meta name="color-scheme" content="dark light">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Google Drive Backup Downloader">
+<meta property="og:url" content="https://shimentosh.github.io/google-drive-backup-downloader/setup.html">
+<meta property="og:title" content="How to Connect Google Drive – Setup Guide (English &amp; বাংলা)">
+<meta property="og:description" content="Connect your Google account to Google Drive Backup Downloader in 7 illustrated steps. One-time setup, about 5 minutes, free, no credit card.">
+<meta property="og:image" content="https://shimentosh.github.io/google-drive-backup-downloader/assets/social-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Google Drive Backup Downloader – back up your entire Google Drive to your PC">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="bn_BD">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How to Connect Google Drive – Setup Guide (English &amp; বাংলা)">
+<meta name="twitter:description" content="Connect your Google account to Google Drive Backup Downloader in 7 illustrated steps. One-time setup, about 5 minutes, free, no credit card.">
+<meta name="twitter:image" content="https://shimentosh.github.io/google-drive-backup-downloader/assets/social-card.png">
+<meta name="twitter:image:alt" content="Google Drive Backup Downloader – back up your entire Google Drive to your PC">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234b8bff' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 3.2 4.8 6v6.1c0 4.3 3 8.1 7.2 9.2 4.2-1.1 7.2-4.9 7.2-9.2V6z' fill='%234b8bff' fill-opacity='.16'/%3E%3Cpath d='m9.2 12.2 2 2 3.6-4'/%3E%3C/svg%3E">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap">
+
+<script>
+(function(){
+  var d=document.documentElement, l=null;
+  d.classList.add('js');
+  try{l=localStorage.getItem('gdbd-lang')}catch(e){}
+  if(l!=='en'&&l!=='bn'){l=String(navigator.language||'').toLowerCase().indexOf('bn')===0?'bn':'en'}
+  d.setAttribute('data-lang',l); d.lang=l;
+})();
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to connect Google Drive to Google Drive Backup Downloader",
+  "description": "One-time setup to connect your Google account to Google Drive Backup Downloader with your own free Google Cloud OAuth client. About 5 minutes, free, no credit card.",
+  "url": "https://shimentosh.github.io/google-drive-backup-downloader/setup.html",
+  "inLanguage": ["en", "bn"],
+  "totalTime": "PT5M",
+  "estimatedCost": { "@type": "MonetaryAmount", "currency": "USD", "value": "0" },
+  "image": "https://shimentosh.github.io/google-drive-backup-downloader/assets/social-card.png",
+  "supply": [{ "@type": "HowToSupply", "name": "A Google (Gmail) account" }],
+  "tool": [{ "@type": "HowToTool", "name": "Google Drive Backup Downloader for Windows" }],
+  "step": [
+    { "@type": "HowToStep", "position": 1, "name": "Create a Google Cloud project", "url": "https://shimentosh.github.io/google-drive-backup-downloader/setup.html#step-1",
+      "text": "Open https://console.cloud.google.com/projectcreate and sign in with the same Gmail you want to back up. Name the project anything, for example drive-backup, and click Create. Wait about 10 seconds and make sure the project is selected in the top bar project picker." },
+    { "@type": "HowToStep", "position": 2, "name": "Turn on the Google Drive API", "url": "https://shimentosh.github.io/google-drive-backup-downloader/setup.html#step-2",
+      "text": "Open https://console.cloud.google.com/flows/enableapi?apiid=drive.googleapis.com, confirm the project and click Next, then Enable." },
+    { "@type": "HowToStep", "position": 3, "name": "Set up the Google Auth platform (consent screen)", "url": "https://shimentosh.github.io/google-drive-backup-downloader/setup.html#step-3",
+      "text": "Open https://console.cloud.google.com/auth/branding and click Get Started. Enter an app name and your Gmail as user support email, choose External as the audience, enter your contact email, agree to the Google API Services User Data Policy, then click Continue and Create." },
+    { "@type": "HowToStep", "position": 4, "name": "Add yourself as a test user", "url": "https://shimentosh.github.io/google-drive-backup-downloader/setup.html#step-4",
+      "text": "Open https://console.cloud.google.com/auth/audience, click Add users under Test users, type your Gmail address and click Save." },
+    { "@type": "HowToStep", "position": 5, "name": "Create the Desktop app key", "url": "https://shimentosh.github.io/google-drive-backup-downloader/setup.html#step-5",
+      "text": "Open https://console.cloud.google.com/auth/clients, click Create Client, choose Desktop app as the application type, name it and click Create. In the dialog, click Download JSON right away: Google shows the client secret only once." },
+    { "@type": "HowToStep", "position": 6, "name": "Give the file to the app", "url": "https://shimentosh.github.io/google-drive-backup-downloader/setup.html#step-6",
+      "text": "Open Google Drive Backup Downloader and on the welcome screen click Choose downloaded JSON file, drag the .json file onto the window, or paste the Client ID and Client secret." },
+    { "@type": "HowToStep", "position": 7, "name": "Connect your Google account", "url": "https://shimentosh.github.io/google-drive-backup-downloader/setup.html#step-7",
+      "text": "Click Connect Google Drive, choose your account, click Continue on the Google hasn't verified this app screen, tick See and download all your Google Drive files, and click Continue. Then choose a destination folder and click Back Up Entire Drive." }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Google Drive Backup Downloader", "item": "https://shimentosh.github.io/google-drive-backup-downloader/" },
+    { "@type": "ListItem", "position": 2, "name": "Setup guide", "item": "https://shimentosh.github.io/google-drive-backup-downloader/setup.html" }
+  ]
+}
+</script>
+
+<style>
+:root{
+  --bg:#0a0e17;
+  --bg-2:#0f1522;
+  --surface:#121a29;
+  --surface-2:#172134;
+  --border:rgba(148,170,210,.14);
+  --border-strong:rgba(148,170,210,.26);
+  --text:#e8edf7;
+  --text-2:#a9b4c8;
+  --text-3:#8390a8;
+  --accent:#4b8bff;
+  --accent-2:#7aa9ff;
+  --accent-ink:#ffffff;
+  --accent-strong:#2f6fe8;
+  --accent-soft:rgba(75,139,255,.14);
+  --good:#3ecf8e;
+  --good-soft:rgba(62,207,142,.12);
+  --bad:#ff6b7a;
+  --bad-soft:rgba(255,107,122,.10);
+  --warn:#ffb547;
+  --warn-soft:rgba(255,181,71,.10);
+  --hl:#ffb020;
+  --glow:rgba(75,139,255,.35);
+  --shadow:0 30px 80px -20px rgba(0,0,0,.65),0 0 0 1px var(--border);
+  --radius:16px;
+  --maxw:1160px;
+  --nav-bg:rgba(10,14,23,.72);
+}
+@media (prefers-color-scheme: light){
+  :root{
+    --bg:#f6f8fc;
+    --bg-2:#eef2f9;
+    --surface:#ffffff;
+    --surface-2:#f2f5fb;
+    --border:rgba(30,50,90,.12);
+    --border-strong:rgba(30,50,90,.22);
+    --text:#0d1526;
+    --text-2:#44506a;
+    --text-3:#5d6880;
+    --accent:#2f6fe8;
+    --accent-2:#2f6fe8;
+    --accent-soft:rgba(47,111,232,.10);
+    --accent-strong:#2563eb;
+    --good:#11875a;
+    --good-soft:rgba(17,135,90,.09);
+    --bad:#d6334a;
+    --bad-soft:rgba(214,51,74,.07);
+    --warn:#a95f00;
+    --warn-soft:rgba(230,140,20,.10);
+    --glow:rgba(75,139,255,.28);
+    --shadow:0 30px 70px -25px rgba(20,40,90,.35),0 0 0 1px var(--border);
+    --nav-bg:rgba(246,248,252,.8);
+  }
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--bg);color:var(--text);
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--accent-2);text-decoration:none}
+a:hover{text-decoration:underline}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+h1,h2,h3{line-height:1.15;letter-spacing:-.02em;margin:0}
+p{margin:0}
+code{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.9em;background:var(--accent-soft);padding:.1em .4em;border-radius:6px;color:var(--text);overflow-wrap:anywhere}
+.wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 20px}
+.skip{position:absolute;left:-9999px;top:8px;z-index:100;background:var(--accent);color:#fff;padding:8px 14px;border-radius:8px}
+.skip:focus{left:12px}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* Language switching */
+html[data-lang="bn"] body [lang="en"]{display:none!important}
+html:not([data-lang="bn"]) body [lang="bn"]{display:none!important}
+[lang="bn"]{font-family:"Hind Siliguri","Noto Sans Bengali",Inter,ui-sans-serif,system-ui,sans-serif}
+html[data-lang="bn"] body{line-height:1.7}
+html[data-lang="bn"] h1,html[data-lang="bn"] h2,html[data-lang="bn"] h3{letter-spacing:0;line-height:1.3}
+.lang-toggle{display:none;padding:3px;border-radius:10px;background:var(--surface);border:1px solid var(--border-strong)}
+.js .lang-toggle{display:inline-flex}
+.lang-toggle button{font:inherit;font-size:13.5px;font-weight:600;color:var(--text-2);background:transparent;border:0;padding:5px 10px;border-radius:7px;cursor:pointer;line-height:1.3}
+.lang-toggle button:hover{color:var(--text)}
+.lang-toggle button[aria-pressed="true"]{background:var(--accent-strong);color:#fff}
+.lang-toggle .bn-label{font-family:"Hind Siliguri","Noto Sans Bengali",sans-serif}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.55em;font:inherit;font-weight:600;font-size:15px;
+  padding:12px 20px;border-radius:12px;border:1px solid transparent;cursor:pointer;transition:transform .15s ease,box-shadow .2s ease,background .2s ease;white-space:nowrap}
+.btn:hover{text-decoration:none;transform:translateY(-1px)}
+.btn svg{width:18px;height:18px;flex:none}
+.btn-primary{background:linear-gradient(180deg,#4383f7,#2563eb);color:#fff;box-shadow:0 8px 24px -8px var(--glow),inset 0 1px 0 rgba(255,255,255,.25)}
+.btn-primary:hover{box-shadow:0 12px 32px -8px var(--glow),inset 0 1px 0 rgba(255,255,255,.25)}
+.btn-ghost{background:var(--surface);color:var(--text);border-color:var(--border-strong)}
+.btn-ghost:hover{background:var(--surface-2)}
+.btn-sm{padding:8px 14px;font-size:14px;border-radius:10px}
+.btn-lg{padding:15px 26px;font-size:16px}
+
+/* Nav */
+.nav{position:sticky;top:0;z-index:50;backdrop-filter:saturate(1.6) blur(14px);-webkit-backdrop-filter:saturate(1.6) blur(14px);
+  background:var(--nav-bg);border-bottom:1px solid var(--border)}
+.nav .wrap{display:flex;align-items:center;gap:16px;height:64px}
+.brand{display:flex;align-items:center;gap:10px;color:var(--text);font-weight:700;min-width:0}
+.brand:hover{text-decoration:none}
+.brand svg{width:30px;height:30px;flex:none}
+.brand-text{display:flex;flex-direction:column;line-height:1.15;min-width:0}
+.brand-logo{display:flex;border-radius:8px}
+.brand-name{font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--text)}
+a.brand-name:hover{text-decoration:none}
+.nav-main{margin-left:auto}
+.brand-by{font-size:11.5px;font-weight:500;color:var(--text-3)}
+.brand-by a{color:var(--text-3)}
+.brand-by a:hover{color:var(--accent-2)}
+.nav-links{display:flex;gap:4px;margin-left:auto;list-style:none;padding:0;margin-top:0;margin-bottom:0}
+.nav-links a{color:var(--text-2);font-size:14.5px;font-weight:500;padding:8px 12px;border-radius:8px}
+.nav-links a:hover{color:var(--text);background:var(--accent-soft);text-decoration:none}
+.nav-links a[aria-current="page"]{color:var(--text);background:var(--accent-soft)}
+.nav-actions{display:flex;gap:8px;align-items:center}
+@media (max-width:980px){.nav-links{display:none}.nav-actions{margin-left:auto}}
+@media (max-width:520px){.nav .star-btn{display:none}.brand-name{font-size:14px}.nav .wrap{gap:10px}}
+@media (max-width:420px){.nav .dl-label{display:none}.brand-by{display:none}}
+
+/* Hero */
+.hero{position:relative;padding:56px 0 24px;text-align:center;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:-200px -10% auto;height:640px;pointer-events:none;
+  background:radial-gradient(600px 340px at 50% 30%,rgba(75,139,255,.22),transparent 70%),
+             radial-gradient(400px 260px at 20% 10%,rgba(122,92,255,.14),transparent 70%),
+             radial-gradient(400px 260px at 82% 18%,rgba(62,207,142,.10),transparent 70%)}
+.hero .grid-bg{position:absolute;inset:0;pointer-events:none;opacity:.5;
+  background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);
+  background-size:56px 56px;-webkit-mask-image:radial-gradient(ellipse 70% 55% at 50% 20%,#000 30%,transparent 75%);mask-image:radial-gradient(ellipse 70% 55% at 50% 20%,#000 30%,transparent 75%)}
+.hero > .wrap{position:relative}
+.crumbs{display:flex;justify-content:center;flex-wrap:wrap;gap:6px;list-style:none;padding:0;margin:0 0 18px;font-size:13.5px;color:var(--text-3)}
+.crumbs li+li::before{content:"›";margin-right:6px;color:var(--text-3)}
+.crumbs a{color:var(--text-2)}
+.eyebrow{display:inline-block;font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-2)}
+.hero h1{font-size:clamp(30px,5.4vw,56px);font-weight:800;margin:14px auto 0;max-width:18ch;letter-spacing:-.035em}
+.grad{background:linear-gradient(100deg,var(--accent-2) 10%,#9b7bff 55%,#3ecf8e 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+@media (prefers-color-scheme: light){.grad{background:linear-gradient(100deg,#2f6fe8 10%,#6a4be0 60%,#0d8f5c 100%);-webkit-background-clip:text;background-clip:text}}
+.hero .lede{font-size:clamp(16px,2vw,19px);color:var(--text-2);max-width:660px;margin:18px auto 0}
+.trust{display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:center;margin:24px 0 0;padding:0;list-style:none;color:var(--text-2);font-size:14px;font-weight:500}
+.trust li{display:flex;align-items:center;gap:7px}
+.trust svg{width:17px;height:17px;color:var(--good);flex:none}
+
+/* Why */
+.why{display:grid;grid-template-columns:1.1fr 1fr;gap:24px;margin:40px auto 0;max-width:980px;text-align:left}
+@media (max-width:820px){.why{grid-template-columns:1fr}}
+.panel-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px}
+.panel-card h2{font-size:19px;font-weight:700}
+.panel-card > p{color:var(--text-2);font-size:15px;margin-top:8px}
+.checks{list-style:none;padding:0;margin:16px 0 0;display:grid;gap:12px}
+.checks li{display:flex;gap:12px;color:var(--text-2);font-size:15px}
+.checks li strong{color:var(--text)}
+.checks svg{width:22px;height:22px;flex:none;color:var(--good);margin-top:1px}
+.need .btn{margin-top:16px}
+
+/* Guide layout */
+section{scroll-margin-top:84px}
+.guide{display:grid;grid-template-columns:250px minmax(0,1fr);gap:40px;align-items:start;padding-top:40px}
+.tracker{position:sticky;top:88px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px}
+.t-head{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.t-title{font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-3)}
+html[data-lang="bn"] .t-title{letter-spacing:0;text-transform:none;font-size:14px}
+.t-title,.t-count{white-space:nowrap}
+.t-count{font-size:13.5px;font-weight:600;color:var(--text-2)}
+.bar{height:8px;border-radius:999px;background:var(--surface-2);border:1px solid var(--border);overflow:hidden;margin-top:12px}
+.bar span{display:block;height:100%;width:0;border-radius:999px;background:linear-gradient(90deg,#4383f7,#3ecf8e);transition:width .45s cubic-bezier(.2,.7,.2,1)}
+.t-list{list-style:none;padding:0;margin:16px 0 0;display:grid;gap:4px}
+.t-list a{display:flex;align-items:center;gap:10px;padding:7px 8px;border-radius:10px;color:var(--text-2);font-size:14.5px;font-weight:500;line-height:1.35}
+.t-list a:hover{background:var(--accent-soft);color:var(--text);text-decoration:none}
+.t-list a[aria-current="step"]{background:var(--accent-soft);color:var(--text)}
+.t-num{flex:none;display:grid;place-items:center;width:28px;height:28px;border-radius:50%;font-size:13px;font-weight:700;color:var(--text-2);background:var(--surface-2);border:1px solid var(--border-strong)}
+.t-num svg{display:none;width:16px;height:16px}
+.t-list a[aria-current="step"] .t-num{border-color:var(--accent);color:var(--accent-2)}
+.t-list li.done .t-num{background:var(--good);border-color:var(--good);color:#fff}
+.t-list li.done .t-num b{display:none}
+.t-list li.done .t-num svg{display:block}
+.t-list li.done .t-label{text-decoration:line-through;text-decoration-color:var(--text-3)}
+.t-reset{margin-top:14px;font:inherit;font-size:13px;color:var(--text-3);background:none;border:0;padding:4px 0;cursor:pointer;text-decoration:underline}
+.t-reset:hover{color:var(--text)}
+.steps-col{min-width:0;display:grid;grid-template-columns:minmax(0,1fr);gap:24px}
+
+@media (max-width:900px){
+  .guide{display:block;padding-top:28px}
+  section{scroll-margin-top:144px}
+  .tracker{top:64px;z-index:40;border-radius:0;border-width:0 0 1px;margin:0 -20px 20px;padding:10px 20px 12px;
+    background:var(--nav-bg);backdrop-filter:saturate(1.6) blur(14px);-webkit-backdrop-filter:saturate(1.6) blur(14px);
+    display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px}
+  .t-head{order:2;margin-left:auto}
+  .t-title,.t-reset{display:none}
+  .t-list{order:1;margin:0;display:flex;gap:5px}
+  .t-list a{padding:0;border-radius:50%}
+  .t-list a:hover,.t-list a[aria-current="step"]{background:none}
+  .t-list a[aria-current="step"] .t-num{background:var(--accent-strong);border-color:var(--accent-strong);color:#fff}
+  .t-label{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  .bar{order:3;flex-basis:100%;margin-top:0;height:6px}
+}
+@media (max-width:600px){.tracker{margin:0 -16px 18px;padding:8px 16px 10px}.t-num{width:26px;height:26px;font-size:12.5px}}
+
+/* Step card */
+.stepcard{position:relative;background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:28px;transition:border-color .25s ease,box-shadow .25s ease}
+.stepcard:target{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+.stepcard.is-done{border-color:color-mix(in srgb,var(--good) 45%,transparent)}
+.s-head{display:flex;gap:16px;align-items:flex-start}
+.step-num{flex:none;display:inline-grid;place-items:center;width:44px;height:44px;border-radius:50%;font-weight:800;font-size:18px;color:#fff;
+  background:linear-gradient(180deg,#5c97ff,#3b7bf0);box-shadow:0 6px 18px -6px var(--glow)}
+.is-done .step-num{background:linear-gradient(180deg,#43d898,#16a06a);box-shadow:0 6px 18px -6px rgba(62,207,142,.45)}
+.s-kicker{display:block;font-size:12.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-2)}
+html[data-lang="bn"] .s-kicker{letter-spacing:0;text-transform:none;font-size:14px}
+.s-head h2{font-size:clamp(20px,2.6vw,25px);font-weight:700;margin-top:4px}
+.is-done .s-head h2{text-decoration:line-through;text-decoration-color:var(--good);text-decoration-thickness:2px;color:var(--text-2)}
+.s-body{margin-top:20px;padding-left:60px}
+@media (max-width:600px){.stepcard{padding:20px 18px}.s-body{padding-left:0}.step-num{width:38px;height:38px;font-size:16px}}
+.is-done .s-body > .sub{opacity:.62}
+
+ol.sub{list-style:none;padding:0;margin:0;display:grid;gap:12px;counter-reset:sub}
+ol.sub > li{position:relative;padding-left:38px;color:var(--text-2);font-size:15.5px;counter-increment:sub}
+ol.sub > li::before{content:counter(sub);position:absolute;left:0;top:1px;width:26px;height:26px;border-radius:8px;display:grid;place-items:center;
+  font-size:13px;font-weight:700;color:var(--accent-2);background:var(--accent-soft);border:1px solid var(--border-strong)}
+ol.sub b,ol.sub strong{color:var(--text);font-weight:600}
+ol.sub em{color:var(--text)}
+.kbd{display:inline-block;font-weight:600;color:var(--text);background:var(--surface-2);border:1px solid var(--border-strong);border-bottom-width:2px;border-radius:7px;padding:0 .45em;font-size:.94em;white-space:nowrap}
+
+.open-row{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;margin-top:20px}
+.open-row .url{font-size:13px;color:var(--text-3);font-family:ui-monospace,SFMono-Regular,Consolas,monospace;overflow-wrap:anywhere;min-width:0}
+@media (max-width:420px){.open-row .btn{width:100%}}
+
+/* Callouts */
+.callout{display:flex;gap:12px;align-items:flex-start;margin-top:18px;padding:14px 16px;border-radius:12px;font-size:15px;color:var(--text-2);
+  background:var(--accent-soft);border:1px solid color-mix(in srgb,var(--accent) 30%,transparent)}
+.callout > svg{width:20px;height:20px;flex:none;margin-top:2px;color:var(--accent-2)}
+.callout strong,.callout b{color:var(--text)}
+.callout.tip{background:var(--good-soft);border-color:color-mix(in srgb,var(--good) 30%,transparent)}
+.callout.tip > svg{color:var(--good)}
+.callout.warn{background:var(--warn-soft);border-color:color-mix(in srgb,var(--warn) 40%,transparent)}
+.callout.warn > svg{color:var(--warn)}
+.callout.danger{background:var(--bad-soft);border:2px solid color-mix(in srgb,var(--bad) 60%,transparent);padding:18px 18px;font-size:15.5px}
+.callout.danger > svg{color:var(--bad);width:26px;height:26px}
+.callout.danger .big{display:block;font-size:17.5px;font-weight:700;color:var(--text);margin-bottom:4px}
+.callout .c-body{min-width:0}
+.callout .c-body p + p{margin-top:6px}
+
+/* Done toggle */
+.done-row{margin-top:24px;padding-top:18px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.done-toggle{display:inline-flex;align-items:center;gap:10px;cursor:pointer;font-weight:600;font-size:15px;color:var(--text);padding:8px 14px 8px 10px;border-radius:12px;border:1px solid var(--border-strong);background:var(--surface-2);user-select:none}
+.done-toggle:hover{border-color:var(--accent)}
+.done-toggle input{appearance:none;-webkit-appearance:none;margin:0;width:22px;height:22px;border-radius:7px;border:2px solid var(--border-strong);background:var(--surface);display:grid;place-items:center;cursor:pointer;flex:none}
+.done-toggle input::after{content:"";width:6px;height:11px;border:solid #fff;border-width:0 2.5px 2.5px 0;transform:rotate(45deg) translate(-1px,-1px);opacity:0}
+.done-toggle input:checked{background:var(--good);border-color:var(--good)}
+.done-toggle input:checked::after{opacity:1}
+.done-toggle input:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.is-done .done-toggle{border-color:color-mix(in srgb,var(--good) 55%,transparent);background:var(--good-soft)}
+.next-link{font-size:14px;font-weight:600}
+
+/* Figures */
+figure{margin:22px 0 0}
+figcaption{margin-top:10px;font-size:13.5px;color:var(--text-3);text-align:center}
+figcaption strong{color:var(--text-2)}
+.window{position:relative;border-radius:14px;overflow:hidden;background:var(--surface);box-shadow:var(--shadow)}
+.window-bar{display:flex;align-items:center;gap:10px;height:34px;padding:0 0 0 12px;background:var(--surface-2);border-bottom:1px solid var(--border);font-size:12.5px;color:var(--text-3)}
+.window-bar svg.mini{width:14px;height:14px;flex:none}
+.window-bar .title{flex:1;min-width:0;text-align:left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.win-ctrl{display:flex;height:100%}
+.win-ctrl span{width:40px;display:grid;place-items:center;color:var(--text-3)}
+.win-ctrl svg{width:10px;height:10px}
+@media (max-width:520px){.win-ctrl span{width:28px}}
+.window img{width:100%;aspect-ratio:1280/900;object-fit:cover;background:var(--bg-2)}
+
+/* Illustrative mockups (always light, like Google's pages) */
+.mock{--m-bg:#ffffff;--m-text:#1f1f1f;--m-2:#5f6368;--m-border:#dadce0;--m-blue:#0b57d0;--m-soft:#f1f4f9;
+  border-radius:14px;overflow:hidden;background:var(--m-bg);color:var(--m-text);box-shadow:var(--shadow);text-align:left;
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:14px;line-height:1.5}
+.m-chrome{display:flex;align-items:center;gap:10px;height:36px;padding:0 12px;background:#e9edf3;border-bottom:1px solid var(--m-border)}
+.m-dots{display:flex;gap:6px;flex:none}
+.m-dots i{width:10px;height:10px;border-radius:50%;background:#c5ccd6}
+.m-url{flex:1;min-width:0;background:#fff;border-radius:999px;padding:3px 12px;font-size:12px;color:var(--m-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.m-body{padding:22px 22px 24px}
+@media (max-width:520px){.m-body{padding:16px 14px 18px}}
+.m-h{font-size:18px;font-weight:600;color:var(--m-text);line-height:1.3}
+.m-p{color:var(--m-2);font-size:13.5px;margin-top:8px}
+.m-label{font-size:12px;color:var(--m-2);margin-top:16px}
+.m-select{margin-top:4px;display:flex;justify-content:space-between;align-items:center;border:2px solid var(--m-blue);border-radius:6px;padding:9px 12px;font-weight:500;max-width:420px}
+.m-select svg{width:16px;height:16px;color:var(--m-2)}
+.m-options{list-style:none;margin:6px 0 0;padding:6px 0;max-width:420px;border-radius:8px;background:#fff;box-shadow:0 4px 18px rgba(0,0,0,.14),0 0 0 1px var(--m-border)}
+.m-options li{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:8px 14px;color:var(--m-text);flex-wrap:wrap}
+.m-options li.dim{color:#8a8f96}
+.m-tag{font-size:11.5px;font-weight:700;padding:2px 8px;border-radius:999px;white-space:nowrap}
+.m-tag.no{background:#fde7ea;color:#b3261e}
+.m-tag.yes{background:#fff1d6;color:#7a4b00}
+.m-dialog{max-width:460px;margin:0 auto;border-radius:16px;background:#fff;box-shadow:0 10px 40px rgba(0,0,0,.18),0 0 0 1px var(--m-border);padding:20px}
+.m-kv{margin-top:14px}
+.m-kv span{display:block;font-size:12px;color:var(--m-2)}
+.m-kv code{display:block;margin-top:2px;background:var(--m-soft);color:var(--m-text);padding:6px 10px;border-radius:6px;font-size:12.5px;word-break:break-all}
+.m-actions{display:flex;justify-content:flex-end;align-items:center;gap:12px;margin-top:20px;flex-wrap:wrap}
+.m-actions.spread{justify-content:space-between}
+.m-btn{display:inline-flex;align-items:center;gap:6px;font-weight:600;font-size:14px;padding:8px 16px;border-radius:999px;color:var(--m-blue);white-space:nowrap}
+.m-btn svg{width:16px;height:16px}
+.m-btn.fill{background:var(--m-blue);color:#fff}
+.m-btn.outline{border:1px solid var(--m-border)}
+.m-shield{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:#fce8e6;color:#b3261e;margin-bottom:14px}
+.m-shield svg{width:24px;height:24px}
+.m-account{display:inline-flex;align-items:center;gap:8px;margin-top:12px;border:1px solid var(--m-border);border-radius:999px;padding:3px 12px 3px 4px;font-size:13px;color:var(--m-text)}
+.m-avatar{width:22px;height:22px;border-radius:50%;background:#7b5cff;color:#fff;font-size:12px;font-weight:700;display:grid;place-items:center}
+.m-check{display:flex;gap:12px;align-items:flex-start;margin-top:16px;padding:12px;border-radius:10px;border:1px solid var(--m-border)}
+.m-box{flex:none;width:20px;height:20px;border-radius:4px;background:var(--m-blue);display:grid;place-items:center;margin-top:1px}
+.m-box::after{content:"";width:5px;height:10px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg) translate(-1px,-1px)}
+.m-check small{display:block;color:var(--m-2);font-size:12.5px}
+.m-note{margin-top:14px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:13px;font-weight:600;color:#7a4b00}
+.m-note svg{width:16px;height:16px;flex:none}
+
+/* Highlight ring on the thing to click */
+.hl{position:relative;box-shadow:0 0 0 3px var(--hl);border-radius:8px;z-index:0}
+.m-btn.hl{border-radius:999px}
+.hl::after{content:"";position:absolute;inset:-3px;border-radius:inherit;pointer-events:none;animation:ring 1.8s ease-out infinite}
+@keyframes ring{0%{box-shadow:0 0 0 0 rgba(255,176,32,.7)}75%,100%{box-shadow:0 0 0 14px rgba(255,176,32,0)}}
+.hl[data-n]::before{content:attr(data-n);position:absolute;top:-11px;left:-11px;width:22px;height:22px;border-radius:50%;background:var(--hl);color:#1f1300;
+  font-size:12px;font-weight:800;display:grid;place-items:center;z-index:1;font-family:Inter,sans-serif}
+
+/* Success / sections */
+.success{text-align:center;border-radius:20px;padding:32px 24px;border:1px solid color-mix(in srgb,var(--good) 40%,transparent);
+  background:radial-gradient(500px 220px at 50% 0%,rgba(62,207,142,.18),transparent 70%),var(--surface)}
+.success svg{width:44px;height:44px;margin:0 auto;color:var(--good)}
+.success h2{font-size:clamp(22px,3vw,28px);font-weight:800;margin-top:12px}
+.success p{color:var(--text-2);margin-top:8px}
+
+.section{padding:80px 0 0}
+.section-head{text-align:center;max-width:720px;margin:0 auto 36px}
+.section-head h2{font-size:clamp(26px,4vw,40px);font-weight:800;margin-top:12px}
+.section-head p{color:var(--text-2);font-size:17px;margin-top:12px}
+.optional{max-width:860px;margin:0 auto;border-radius:20px;padding:30px;border:1px solid rgba(75,139,255,.35);
+  background:linear-gradient(120deg,rgba(75,139,255,.14),rgba(155,123,255,.07) 60%,transparent),var(--surface)}
+.optional .badge{display:inline-block;background:var(--accent-strong);color:#fff;font-size:12px;font-weight:700;padding:3px 10px;border-radius:999px;letter-spacing:.04em}
+.optional h2{font-size:clamp(22px,3vw,28px);font-weight:800;margin-top:12px}
+.optional > p{color:var(--text-2);margin-top:10px}
+.optional ol.sub{margin-top:18px}
+@media (max-width:600px){.optional{padding:22px 18px}}
+
+/* Accordion (same as FAQ on home page) */
+.faq{max-width:860px;margin:0 auto;display:grid;gap:12px}
+.faq details{background:var(--surface);border:1px solid var(--border);border-radius:14px;transition:border-color .2s ease}
+.faq details[open]{border-color:var(--border-strong)}
+.faq summary{list-style:none;cursor:pointer;padding:18px 20px;font-weight:600;font-size:16px;display:flex;justify-content:space-between;align-items:center;gap:16px;border-radius:14px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary h3{font-size:inherit;font-weight:inherit;letter-spacing:-.01em;line-height:1.4;min-width:0;overflow-wrap:anywhere}
+.faq summary .chev{flex:none;width:28px;height:28px;border-radius:8px;display:grid;place-items:center;background:var(--surface-2);color:var(--text-2);transition:transform .25s ease}
+.faq summary .chev svg{width:16px;height:16px}
+.faq details[open] .chev{transform:rotate(180deg);color:var(--accent-2)}
+.faq .answer{padding:0 20px 20px;color:var(--text-2);font-size:15.5px}
+.faq .answer b,.faq .answer strong{color:var(--text)}
+.err{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.04em;color:var(--bad);background:var(--bad-soft);border-radius:6px;padding:1px 7px;margin-right:8px;vertical-align:2px}
+
+/* Final CTA */
+.final{position:relative;overflow:hidden;text-align:center;border-radius:24px;padding:56px 24px;border:1px solid var(--border-strong);
+  background:radial-gradient(600px 300px at 50% 0%,rgba(75,139,255,.28),transparent 70%),var(--surface)}
+.final svg.big{width:52px;height:52px;margin:0 auto}
+.final h2{font-size:clamp(26px,4vw,40px);font-weight:800;margin-top:16px}
+.final p{color:var(--text-2);font-size:17px;max-width:560px;margin:12px auto 0}
+.cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:28px}
+
+/* Footer */
+footer{border-top:1px solid var(--border);padding:44px 0 36px;margin-top:96px;color:var(--text-3);font-size:14.5px}
+.foot{display:flex;justify-content:space-between;gap:28px;flex-wrap:wrap;align-items:flex-start}
+.foot .brand-by{font-size:14px}
+.foot-links{display:flex;flex-wrap:wrap;gap:6px 22px;list-style:none;padding:0;margin:0}
+.foot-links a{color:var(--text-2)}
+.foot-links a:hover{color:var(--accent-2)}
+.foot-bottom{margin-top:28px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:13.5px}
+
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition:none!important;animation:none!important}
+}
+@media (max-width:600px){
+  .hero{padding:36px 0 16px}
+  .section{padding:64px 0 0}
+  .wrap{padding:0 16px}
+  .cta-row .btn{width:100%}
+  .panel-card{padding:20px 18px}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main"><span lang="en">Skip to content</span><span lang="bn">মূল অংশে যান</span></a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3.2 4.8 6v6.1c0 4.3 3 8.1 7.2 9.2 4.2-1.1 7.2-4.9 7.2-9.2V6z" fill="currentColor" fill-opacity=".16" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="m9.2 12.2 2 2 3.6-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="currentColor" fill-opacity=".15"/><path d="m8 12.3 2.6 2.6L16 9.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-tick" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-windows" viewBox="0 0 24 24"><path fill="currentColor" d="M3 5.5 10.5 4.5v7H3zm8.5-1.15L21 3v8.5h-9.5zM3 12.5h7.5v7L3 18.5zm8.5 0H21V21l-9.5-1.35z"/></symbol>
+    <symbol id="i-github" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49l-.01-1.9c-2.78.62-3.37-1.21-3.37-1.21-.46-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.9 1.57 2.35 1.12 2.92.85.09-.66.35-1.12.64-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.04 1.03-2.76-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05a9.4 9.4 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.64 1.03 2.76 0 3.94-2.34 4.81-4.57 5.06.36.32.68.94.68 1.9l-.01 2.81c0 .27.18.6.69.49A10.26 10.26 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 3.5 2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9l-5.2 2.7 1-5.8-4.3-4.1 5.9-.9z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 4v11m-5-5 5 5 5-5M5 20h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-chev" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-ext" viewBox="0 0 24 24"><path d="M14 4h6v6m0-6-9 9m7 1v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 11v5M12 8h.01" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-bulb" viewBox="0 0 24 24"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.6 10.8c.6.5 1 1.2 1 2V16h5.2v-.2c0-.8.4-1.5 1-2A6 6 0 0 0 12 3z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-warn" viewBox="0 0 24 24"><path d="M10.3 3.9 2.6 17.2A2 2 0 0 0 4.3 20h15.4a2 2 0 0 0 1.7-2.8L13.7 3.9a2 2 0 0 0-3.4 0z" fill="currentColor" fill-opacity=".14" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M12 9v4M12 17h.01" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-party" viewBox="0 0 24 24"><path d="M4 20 9 7l8 8z" fill="currentColor" fill-opacity=".15" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M14 4v2M19 9h2M17.5 5.5 16 7M12 3.5l.5 1M20 13l-1 .5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  </defs>
+</svg>
+
+<header class="nav">
+  <div class="wrap">
+    <div class="brand">
+      <a href="./" class="brand-logo" aria-label="Google Drive Backup Downloader home"><svg aria-hidden="true" style="color:var(--accent)"><use href="#i-shield"/></svg></a>
+      <span class="brand-text">
+        <a class="brand-name" href="./">Drive Backup Downloader</a>
+        <span class="brand-by">by <a href="https://shimanto.xyz" rel="author">shimanto.xyz</a></span>
+      </span>
+    </div>
+    <nav aria-label="Primary" class="nav-main">
+      <ul class="nav-links">
+        <li><a href="./"><span lang="en">Home</span><span lang="bn">হোম</span></a></li>
+        <li><a href="setup.html" aria-current="page"><span lang="en">Setup guide</span><span lang="bn">সেটআপ গাইড</span></a></li>
+        <li><a href="#troubleshooting"><span lang="en">Troubleshooting</span><span lang="bn">সমস্যার সমাধান</span></a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+    </nav>
+    <div class="nav-actions">
+      <div class="lang-toggle" role="group" aria-label="Language / ভাষা">
+        <button type="button" data-set-lang="en" aria-pressed="true" title="English">EN</button>
+        <button type="button" data-set-lang="bn" aria-pressed="false" class="bn-label" title="বাংলা">বাংলা</button>
+      </div>
+      <a class="btn btn-ghost btn-sm star-btn" href="https://github.com/shimentosh/google-drive-backup-downloader" aria-label="Star Google Drive Backup Downloader on GitHub">
+        <svg aria-hidden="true"><use href="#i-github"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg>Star
+      </a>
+      <a class="btn btn-primary btn-sm" href="https://github.com/shimentosh/google-drive-backup-downloader/releases/latest">
+        <svg aria-hidden="true"><use href="#i-windows"/></svg><span class="dl-label"><span lang="en">Download</span><span lang="bn">ডাউনলোড</span></span><span class="sr-only"> for Windows</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" id="top" aria-labelledby="hero-title">
+    <div class="grid-bg" aria-hidden="true"></div>
+    <div class="wrap">
+      <nav aria-label="Breadcrumb">
+        <ol class="crumbs">
+          <li><a href="./">Google Drive Backup Downloader</a></li>
+          <li aria-current="page"><span lang="en">Setup guide</span><span lang="bn">সেটআপ গাইড</span></li>
+        </ol>
+      </nav>
+      <span class="eyebrow"><span lang="en">Step-by-step setup guide</span><span lang="bn">ধাপে ধাপে সেটআপ গাইড</span></span>
+      <h1 id="hero-title">
+        <span lang="en">Connect your <span class="grad">Google Drive</span> in 7 easy steps</span>
+        <span lang="bn">৭টি সহজ ধাপে আপনার <span class="grad">Google Drive</span> কানেক্ট করুন</span>
+      </h1>
+      <p class="lede" lang="en">One-time setup, about 5 minutes, free, no credit card. Every step has a button that opens the exact Google page you need — and the app shows the same steps with one-click “Open” buttons.</p>
+      <p class="lede" lang="bn">শুধু একবারই করতে হবে, সময় লাগে মাত্র ৫ মিনিটের মতো — সম্পূর্ণ ফ্রি, কোনো ক্রেডিট কার্ড লাগবে না। প্রতিটি ধাপে একটি বাটন আছে, চাপলেই Google-এর ঠিক দরকারি পেজটা খুলে যাবে — আর অ্যাপের ভেতরেও একই ধাপগুলো এক ক্লিকের “Open” বাটনসহ দেখানো আছে।</p>
+      <ul class="trust" aria-label="Highlights">
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg><span lang="en">About 5 minutes</span><span lang="bn">প্রায় ৫ মিনিট</span></li>
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg><span lang="en">Free</span><span lang="bn">সম্পূর্ণ ফ্রি</span></li>
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg><span lang="en">No credit card</span><span lang="bn">ক্রেডিট কার্ড লাগবে না</span></li>
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg><span lang="en">One time only</span><span lang="bn">শুধু একবার</span></li>
+      </ul>
+
+      <div class="why">
+        <div class="panel-card">
+          <h2><span lang="en">Why is this needed?</span><span lang="bn">এটা কেন করতে হবে?</span></h2>
+          <p lang="en">The app talks directly to Google with <strong>your own key</strong>. That means:</p>
+          <p lang="bn">অ্যাপটি <strong>আপনার নিজের key</strong> দিয়ে সরাসরি Google-এর সাথে কথা বলে। এর মানে:</p>
+          <ul class="checks">
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><span lang="en"><strong>No third-party server</strong> ever touches your files.</span><span lang="bn"><strong>কোনো থার্ড-পার্টি সার্ভার</strong> কখনো আপনার ফাইল ছুঁতে পারে না।</span></span></li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><span lang="en"><strong>Read-only access.</strong> The app cannot delete or change anything in your Drive.</span><span lang="bn"><strong>শুধু দেখার (read-only) অনুমতি।</strong> অ্যাপটি আপনার Drive-এর কিছুই মুছতে বা বদলাতে পারে না।</span></span></li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><span lang="en"><strong>Your password is never typed into the app.</strong> You sign in on Google's own page.</span><span lang="bn"><strong>পাসওয়ার্ড কখনো অ্যাপে লিখতে হয় না।</strong> আপনি Google-এর নিজের পেজেই সাইন ইন করবেন।</span></span></li>
+          </ul>
+        </div>
+        <div class="panel-card need">
+          <h2><span lang="en">Before you start</span><span lang="bn">শুরু করার আগে</span></h2>
+          <ul class="checks">
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><span lang="en">A Windows 10 / 11 PC with the app downloaded.</span><span lang="bn">একটি Windows 10 / 11 পিসি, যেখানে অ্যাপটি ডাউনলোড করা আছে।</span></span></li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><span lang="en">The Gmail account you want to back up.</span><span lang="bn">যে Gmail অ্যাকাউন্টের ব্যাকআপ নিতে চান।</span></span></li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><span lang="en">The app's welcome screen shows these same steps with one-click <b>Open</b> buttons. Its <b>Show me</b> links bring you here for pictures.</span><span lang="bn">অ্যাপের ওয়েলকাম স্ক্রিনেও এই একই ধাপগুলো আছে, এক ক্লিকের <b>Open</b> বাটনসহ। ছবিসহ দেখতে সেখানকার <b>Show me</b> লিংক আপনাকে এই পেজে নিয়ে আসবে।</span></span></li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><span lang="en">Tip: keep this page open in one tab and do each step in another.</span><span lang="bn">টিপস: এই পেজটা এক ট্যাবে খোলা রাখুন, আর প্রতিটি ধাপ আরেক ট্যাবে করুন।</span></span></li>
+          </ul>
+          <a class="btn btn-ghost btn-sm" href="https://github.com/shimentosh/google-drive-backup-downloader/releases/latest"><svg aria-hidden="true"><use href="#i-windows"/></svg><span lang="en">Download the app</span><span lang="bn">অ্যাপটি ডাউনলোড করুন</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div class="guide" id="steps">
+      <aside class="tracker" aria-label="Progress">
+        <div class="t-head">
+          <span class="t-title"><span lang="en">Your progress</span><span lang="bn">আপনার অগ্রগতি</span></span>
+          <span class="t-count" aria-live="polite"><span lang="en" id="count-en">0 of 7 done</span><span lang="bn" id="count-bn">০/৭ শেষ</span></span>
+        </div>
+        <div class="bar" id="bar" role="progressbar" aria-label="Steps done" aria-valuemin="0" aria-valuemax="7" aria-valuenow="0"><span id="bar-fill"></span></div>
+        <ol class="t-list">
+          <li data-t="1"><a href="#step-1"><span class="t-num"><b>1</b><svg aria-hidden="true"><use href="#i-tick"/></svg></span><span class="t-label"><span lang="en">Create a project</span><span lang="bn">প্রজেক্ট তৈরি</span></span></a></li>
+          <li data-t="2"><a href="#step-2"><span class="t-num"><b>2</b><svg aria-hidden="true"><use href="#i-tick"/></svg></span><span class="t-label"><span lang="en">Turn on Drive API</span><span lang="bn">Drive API চালু</span></span></a></li>
+          <li data-t="3"><a href="#step-3"><span class="t-num"><b>3</b><svg aria-hidden="true"><use href="#i-tick"/></svg></span><span class="t-label"><span lang="en">Consent screen</span><span lang="bn">কনসেন্ট স্ক্রিন</span></span></a></li>
+          <li data-t="4"><a href="#step-4"><span class="t-num"><b>4</b><svg aria-hidden="true"><use href="#i-tick"/></svg></span><span class="t-label"><span lang="en">Add test user</span><span lang="bn">টেস্ট ইউজার যোগ</span></span></a></li>
+          <li data-t="5"><a href="#step-5"><span class="t-num"><b>5</b><svg aria-hidden="true"><use href="#i-tick"/></svg></span><span class="t-label"><span lang="en">Desktop app key</span><span lang="bn">Desktop app key</span></span></a></li>
+          <li data-t="6"><a href="#step-6"><span class="t-num"><b>6</b><svg aria-hidden="true"><use href="#i-tick"/></svg></span><span class="t-label"><span lang="en">Give file to app</span><span lang="bn">ফাইলটি অ্যাপে দিন</span></span></a></li>
+          <li data-t="7"><a href="#step-7"><span class="t-num"><b>7</b><svg aria-hidden="true"><use href="#i-tick"/></svg></span><span class="t-label"><span lang="en">Connect account</span><span lang="bn">অ্যাকাউন্ট কানেক্ট</span></span></a></li>
+        </ol>
+        <button type="button" class="t-reset" id="reset"><span lang="en">Reset progress</span><span lang="bn">অগ্রগতি রিসেট করুন</span></button>
+      </aside>
+
+      <div class="steps-col">
+
+        <!-- STEP 1 -->
+        <section class="stepcard" id="step-1" aria-labelledby="step-1-title" data-step="1">
+          <div class="s-head">
+            <span class="step-num" aria-hidden="true">1</span>
+            <div>
+              <span class="s-kicker"><span lang="en">Step 1 of 7</span><span lang="bn">ধাপ ১ / ৭</span></span>
+              <h2 id="step-1-title"><span lang="en">Create a Google Cloud project</span><span lang="bn">একটি Google Cloud প্রজেক্ট তৈরি করুন</span></h2>
+            </div>
+          </div>
+          <div class="s-body">
+            <ol class="sub">
+              <li><span lang="en">Open the page below and sign in with the <strong>same Gmail you want to back up</strong>.</span><span lang="bn">নিচের বাটনে চাপ দিয়ে পেজটি খুলুন, আর <strong>যে Gmail-এর ব্যাকআপ নিতে চান, সেটি দিয়েই</strong> সাইন ইন করুন।</span></li>
+              <li><span lang="en"><b>Project name:</b> type anything, for example <code>drive-backup</code>.</span><span lang="bn"><b>Project name</b>-এ যেকোনো নাম দিন, যেমন <code>drive-backup</code>।</span></li>
+              <li><span lang="en">Click <span class="kbd">Create</span>.</span><span lang="bn"><span class="kbd">Create</span> বাটনে চাপুন।</span></li>
+              <li><span lang="en">Wait about 10 seconds. Then look at the <b>project picker</b> in the top bar and make sure your new project is selected.</span><span lang="bn">১০ সেকেন্ডের মতো অপেক্ষা করুন। তারপর উপরের বারে <b>project picker</b>-এ দেখে নিন, নতুন প্রজেক্টটি সিলেক্ট করা আছে কিনা।</span></li>
+            </ol>
+            <div class="open-row">
+              <a class="btn btn-primary" href="https://console.cloud.google.com/projectcreate" target="_blank" rel="noopener"><span lang="en">Open this page</span><span lang="bn">এই পেজটি খুলুন</span><svg aria-hidden="true"><use href="#i-ext"/></svg><span class="sr-only"> (opens in a new tab)</span></a>
+              <span class="url">console.cloud.google.com/projectcreate</span>
+            </div>
+            <div class="callout tip" role="note">
+              <svg aria-hidden="true"><use href="#i-bulb"/></svg>
+              <div class="c-body">
+                <p lang="en"><strong>Tip:</strong> all the next steps happen inside this project. If you ever see a different project name at the top, switch back to this one.</p>
+                <p lang="bn"><strong>টিপস:</strong> পরের সব ধাপ এই প্রজেক্টের ভেতরেই করতে হবে। উপরে কখনো অন্য প্রজেক্টের নাম দেখলে, আবার এই প্রজেক্টটি সিলেক্ট করে নিন।</p>
+              </div>
+            </div>
+            <div class="done-row">
+              <label class="done-toggle"><input type="checkbox" data-done="1"><span lang="en">I've done this step</span><span lang="bn">এই ধাপটি শেষ করেছি</span></label>
+              <a class="next-link" href="#step-2"><span lang="en">Next: Step 2</span><span lang="bn">পরের ধাপ: ২</span> &rarr;</a>
+            </div>
+          </div>
+        </section>
+
+        <!-- STEP 2 -->
+        <section class="stepcard" id="step-2" aria-labelledby="step-2-title" data-step="2">
+          <div class="s-head">
+            <span class="step-num" aria-hidden="true">2</span>
+            <div>
+              <span class="s-kicker"><span lang="en">Step 2 of 7</span><span lang="bn">ধাপ ২ / ৭</span></span>
+              <h2 id="step-2-title"><span lang="en">Turn on the Google Drive API</span><span lang="bn">Google Drive API চালু করুন</span></h2>
+            </div>
+          </div>
+          <div class="s-body">
+            <ol class="sub">
+              <li><span lang="en">Open the page below.</span><span lang="bn">নিচের বাটন দিয়ে পেজটি খুলুন।</span></li>
+              <li><span lang="en">Confirm that your project from Step 1 is selected, then click <span class="kbd">Next</span>.</span><span lang="bn">দেখে নিন ধাপ ১-এর প্রজেক্টটি সিলেক্ট করা আছে, তারপর <span class="kbd">Next</span> চাপুন।</span></li>
+              <li><span lang="en">Click <span class="kbd">Enable</span>. (If the page shows an <span class="kbd">Enable</span> button, click it. If it says the API is already enabled, you're done.)</span><span lang="bn"><span class="kbd">Enable</span> চাপুন। (পেজে <span class="kbd">Enable</span> বাটন দেখালে সেটিতে চাপুন। যদি লেখা থাকে API আগেই চালু আছে, তাহলে এই ধাপ শেষ।)</span></li>
+            </ol>
+            <div class="open-row">
+              <a class="btn btn-primary" href="https://console.cloud.google.com/flows/enableapi?apiid=drive.googleapis.com" target="_blank" rel="noopener"><span lang="en">Open this page</span><span lang="bn">এই পেজটি খুলুন</span><svg aria-hidden="true"><use href="#i-ext"/></svg><span class="sr-only"> (opens in a new tab)</span></a>
+              <span class="url">console.cloud.google.com/flows/enableapi?apiid=drive.googleapis.com</span>
+            </div>
+            <div class="done-row">
+              <label class="done-toggle"><input type="checkbox" data-done="2"><span lang="en">I've done this step</span><span lang="bn">এই ধাপটি শেষ করেছি</span></label>
+              <a class="next-link" href="#step-3"><span lang="en">Next: Step 3</span><span lang="bn">পরের ধাপ: ৩</span> &rarr;</a>
+            </div>
+          </div>
+        </section>
+
+        <!-- STEP 3 -->
+        <section class="stepcard" id="step-3" aria-labelledby="step-3-title" data-step="3">
+          <div class="s-head">
+            <span class="step-num" aria-hidden="true">3</span>
+            <div>
+              <span class="s-kicker"><span lang="en">Step 3 of 7</span><span lang="bn">ধাপ ৩ / ৭</span></span>
+              <h2 id="step-3-title"><span lang="en">Set up the Google Auth platform (consent screen)</span><span lang="bn">Google Auth platform (কনসেন্ট স্ক্রিন) সেটআপ করুন</span></h2>
+            </div>
+          </div>
+          <div class="s-body">
+            <ol class="sub">
+              <li><span lang="en">Open the page below. If it says <em>“Google Auth platform not configured yet”</em>, click <span class="kbd">Get Started</span>.</span><span lang="bn">নিচের পেজটি খুলুন। যদি লেখা থাকে <em>“Google Auth platform not configured yet”</em>, তাহলে <span class="kbd">Get Started</span> চাপুন।</span></li>
+              <li><span lang="en"><b>App Information:</b> App name — anything, for example <code>My Drive Backup</code>. User support email — choose your Gmail. Click <span class="kbd">Next</span>.</span><span lang="bn"><b>App Information:</b> App name-এ যেকোনো নাম দিন, যেমন <code>My Drive Backup</code>। User support email-এ আপনার Gmail বেছে নিন। তারপর <span class="kbd">Next</span> চাপুন।</span></li>
+              <li><span lang="en"><b>Audience:</b> choose <b>External</b> → <span class="kbd">Next</span>.</span><span lang="bn"><b>Audience:</b> <b>External</b> সিলেক্ট করুন → <span class="kbd">Next</span>।</span></li>
+              <li><span lang="en"><b>Contact Information:</b> type your email → <span class="kbd">Next</span>.</span><span lang="bn"><b>Contact Information:</b> আপনার ইমেইল লিখুন → <span class="kbd">Next</span>।</span></li>
+              <li><span lang="en"><b>Finish:</b> tick <em>“I agree to the Google API Services: User Data Policy”</em> → <span class="kbd">Continue</span> → <span class="kbd">Create</span>.</span><span lang="bn"><b>Finish:</b> <em>“I agree to the Google API Services: User Data Policy”</em>-এ টিক দিন → <span class="kbd">Continue</span> → <span class="kbd">Create</span>।</span></li>
+            </ol>
+            <div class="open-row">
+              <a class="btn btn-primary" href="https://console.cloud.google.com/auth/branding" target="_blank" rel="noopener"><span lang="en">Open this page</span><span lang="bn">এই পেজটি খুলুন</span><svg aria-hidden="true"><use href="#i-ext"/></svg><span class="sr-only"> (opens in a new tab)</span></a>
+              <span class="url">console.cloud.google.com/auth/branding</span>
+            </div>
+            <div class="callout" role="note">
+              <svg aria-hidden="true"><use href="#i-info"/></svg>
+              <div class="c-body">
+                <p lang="en"><strong>“External”</strong> simply means a normal Gmail account can sign in. Nobody else can use your key — only you.</p>
+                <p lang="bn"><strong>“External”</strong> মানে সাধারণ Gmail অ্যাকাউন্ট দিয়ে সাইন ইন করা যাবে। আপনার key আর কেউ ব্যবহার করতে পারবে না — শুধু আপনি।</p>
+              </div>
+            </div>
+            <div class="done-row">
+              <label class="done-toggle"><input type="checkbox" data-done="3"><span lang="en">I've done this step</span><span lang="bn">এই ধাপটি শেষ করেছি</span></label>
+              <a class="next-link" href="#step-4"><span lang="en">Next: Step 4</span><span lang="bn">পরের ধাপ: ৪</span> &rarr;</a>
+            </div>
+          </div>
+        </section>
+
+        <!-- STEP 4 -->
+        <section class="stepcard" id="step-4" aria-labelledby="step-4-title" data-step="4">
+          <div class="s-head">
+            <span class="step-num" aria-hidden="true">4</span>
+            <div>
+              <span class="s-kicker"><span lang="en">Step 4 of 7</span><span lang="bn">ধাপ ৪ / ৭</span></span>
+              <h2 id="step-4-title"><span lang="en">Add yourself as a test user</span><span lang="bn">নিজেকে test user হিসেবে যোগ করুন</span></h2>
+            </div>
+          </div>
+          <div class="s-body">
+            <ol class="sub">
+              <li><span lang="en">Open the page below (<b>Audience</b>).</span><span lang="bn">নিচের পেজটি (<b>Audience</b>) খুলুন।</span></li>
+              <li><span lang="en">Under <b>Test users</b>, click <span class="kbd">Add users</span>.</span><span lang="bn"><b>Test users</b> অংশে <span class="kbd">Add users</span> চাপুন।</span></li>
+              <li><span lang="en">Type your Gmail address → <span class="kbd">Save</span>.</span><span lang="bn">আপনার Gmail ঠিকানা লিখুন → <span class="kbd">Save</span> চাপুন।</span></li>
+            </ol>
+            <div class="open-row">
+              <a class="btn btn-primary" href="https://console.cloud.google.com/auth/audience" target="_blank" rel="noopener"><span lang="en">Open this page</span><span lang="bn">এই পেজটি খুলুন</span><svg aria-hidden="true"><use href="#i-ext"/></svg><span class="sr-only"> (opens in a new tab)</span></a>
+              <span class="url">console.cloud.google.com/auth/audience</span>
+            </div>
+            <div class="callout warn" role="note">
+              <svg aria-hidden="true"><use href="#i-warn"/></svg>
+              <div class="c-body">
+                <p lang="en"><strong>This is the #1 mistake — don't skip it.</strong> Without it, Google shows <em>“Access blocked: … has not completed the Google verification process”</em> / <em>Error 403: access_denied</em> when you try to connect.</p>
+                <p lang="bn"><strong>সবচেয়ে বেশি মানুষ এই ধাপটাই ভুলে যায় — বাদ দেবেন না।</strong> এটা না করলে কানেক্ট করার সময় Google দেখাবে <em>“Access blocked: … has not completed the Google verification process”</em> / <em>Error 403: access_denied</em>।</p>
+              </div>
+            </div>
+            <div class="done-row">
+              <label class="done-toggle"><input type="checkbox" data-done="4"><span lang="en">I've done this step</span><span lang="bn">এই ধাপটি শেষ করেছি</span></label>
+              <a class="next-link" href="#step-5"><span lang="en">Next: Step 5</span><span lang="bn">পরের ধাপ: ৫</span> &rarr;</a>
+            </div>
+          </div>
+        </section>
+
+        <!-- STEP 5 -->
+        <section class="stepcard" id="step-5" aria-labelledby="step-5-title" data-step="5">
+          <div class="s-head">
+            <span class="step-num" aria-hidden="true">5</span>
+            <div>
+              <span class="s-kicker"><span lang="en">Step 5 of 7</span><span lang="bn">ধাপ ৫ / ৭</span></span>
+              <h2 id="step-5-title"><span lang="en">Create the Desktop app key</span><span lang="bn">Desktop app key তৈরি করুন</span></h2>
+            </div>
+          </div>
+          <div class="s-body">
+            <ol class="sub">
+              <li><span lang="en">Open the page below (<b>Clients</b>) and click <span class="kbd">Create Client</span>.</span><span lang="bn">নিচের পেজটি (<b>Clients</b>) খুলুন, তারপর <span class="kbd">Create Client</span> চাপুন।</span></li>
+              <li><span lang="en"><b>Application type:</b> choose <b>Desktop app</b>. <em>Not</em> “Web application” — that causes <em>Error 400: redirect_uri_mismatch</em>.</span><span lang="bn"><b>Application type</b>-এ <b>Desktop app</b> সিলেক্ট করুন। “Web application” <em>নয়</em> — ওটা নিলে <em>Error 400: redirect_uri_mismatch</em> আসবে।</span></li>
+              <li><span lang="en"><b>Name:</b> anything → <span class="kbd">Create</span>.</span><span lang="bn"><b>Name</b>-এ যেকোনো নাম দিন → <span class="kbd">Create</span>।</span></li>
+            </ol>
+            <div class="open-row">
+              <a class="btn btn-primary" href="https://console.cloud.google.com/auth/clients" target="_blank" rel="noopener"><span lang="en">Open this page</span><span lang="bn">এই পেজটি খুলুন</span><svg aria-hidden="true"><use href="#i-ext"/></svg><span class="sr-only"> (opens in a new tab)</span></a>
+              <span class="url">console.cloud.google.com/auth/clients</span>
+            </div>
+
+            <figure>
+              <div class="mock" aria-hidden="true">
+                <div class="m-chrome"><span class="m-dots"><i></i><i></i><i></i></span><span class="m-url">console.cloud.google.com/auth/clients/create</span></div>
+                <div class="m-body">
+                  <div class="m-h">Create OAuth client ID</div>
+                  <div class="m-label">Application type *</div>
+                  <div class="m-select">Desktop app <svg viewBox="0 0 24 24"><use href="#i-chev"/></svg></div>
+                  <ul class="m-options">
+                    <li class="dim">Web application <span class="m-tag no"><span lang="en">✕ Not this</span><span lang="bn">✕ এটা নয়</span></span></li>
+                    <li class="dim">Android</li>
+                    <li class="dim">Chrome Extension</li>
+                    <li class="dim">iOS</li>
+                    <li class="dim">TVs and Limited Input devices</li>
+                    <li class="hl"><b>Desktop app</b> <span class="m-tag yes"><span lang="en">✓ Choose this</span><span lang="bn">✓ এটা বেছে নিন</span></span></li>
+                    <li class="dim">Universal Windows Platform (UWP)</li>
+                  </ul>
+                </div>
+              </div>
+              <figcaption><span lang="en"><strong>Choose “Desktop app”.</strong> Illustration — your screen may look slightly different.</span><span lang="bn"><strong>“Desktop app” বেছে নিন।</strong> এটি একটি উদাহরণ ছবি — আপনার স্ক্রিন একটু আলাদা দেখাতে পারে।</span></figcaption>
+            </figure>
+
+            <div class="callout danger" role="note">
+              <svg aria-hidden="true"><use href="#i-warn"/></svg>
+              <div class="c-body">
+                <p lang="en"><span class="big">Click “Download JSON” right now!</span>A dialog shows your <b>Client ID</b> and <b>Client secret</b>. Google shows the secret <b>only once</b>. If you close it by mistake, don't worry — just create a new client. Keep this file private: <b>never share it or upload it</b> anywhere.</p>
+                <p lang="bn"><span class="big">এখনই “Download JSON” চাপুন!</span>একটি ডায়ালগে আপনার <b>Client ID</b> আর <b>Client secret</b> দেখাবে। Google এই secret <b>মাত্র একবারই</b> দেখায়। ভুল করে বন্ধ করে ফেললে চিন্তা নেই — শুধু নতুন একটি client তৈরি করুন। ফাইলটি নিজের কাছে গোপন রাখুন: <b>কাউকে দেবেন না, কোথাও আপলোড করবেন না</b>।</p>
+              </div>
+            </div>
+
+            <figure>
+              <div class="mock" aria-hidden="true">
+                <div class="m-chrome"><span class="m-dots"><i></i><i></i><i></i></span><span class="m-url">console.cloud.google.com/auth/clients</span></div>
+                <div class="m-body" style="background:#eef1f6">
+                  <div class="m-dialog">
+                    <div class="m-h">OAuth client created</div>
+                    <div class="m-kv"><span>Client ID</span><code>123456789012-abcdefg.apps.googleusercontent.com</code></div>
+                    <div class="m-kv"><span>Client secret</span><code>GOCSPX-••••••••••••••••••••</code></div>
+                    <div class="m-actions">
+                      <span class="m-btn hl"><svg viewBox="0 0 24 24"><use href="#i-down"/></svg>Download JSON</span>
+                      <span class="m-btn">OK</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <figcaption><span lang="en"><strong>Click “Download JSON” before closing this dialog.</strong> Illustration — your screen may look slightly different.</span><span lang="bn"><strong>ডায়ালগটি বন্ধ করার আগেই “Download JSON” চাপুন।</strong> এটি একটি উদাহরণ ছবি — আপনার স্ক্রিন একটু আলাদা দেখাতে পারে।</span></figcaption>
+            </figure>
+
+            <div class="done-row">
+              <label class="done-toggle"><input type="checkbox" data-done="5"><span lang="en">I've done this step</span><span lang="bn">এই ধাপটি শেষ করেছি</span></label>
+              <a class="next-link" href="#step-6"><span lang="en">Next: Step 6</span><span lang="bn">পরের ধাপ: ৬</span> &rarr;</a>
+            </div>
+          </div>
+        </section>
+
+        <!-- STEP 6 -->
+        <section class="stepcard" id="step-6" aria-labelledby="step-6-title" data-step="6">
+          <div class="s-head">
+            <span class="step-num" aria-hidden="true">6</span>
+            <div>
+              <span class="s-kicker"><span lang="en">Step 6 of 7</span><span lang="bn">ধাপ ৬ / ৭</span></span>
+              <h2 id="step-6-title"><span lang="en">Give the file to the app</span><span lang="bn">ফাইলটি অ্যাপকে দিন</span></h2>
+            </div>
+          </div>
+          <div class="s-body">
+            <ol class="sub">
+              <li><span lang="en">Open <b>Google Drive Backup Downloader</b>.</span><span lang="bn"><b>Google Drive Backup Downloader</b> অ্যাপটি খুলুন।</span></li>
+              <li><span lang="en">On the welcome screen (the setup wizard), go to step 6 and click <span class="kbd">Choose downloaded JSON file…</span> and pick the file you just downloaded (usually in your <em>Downloads</em> folder).</span><span lang="bn">ওয়েলকাম স্ক্রিনে (সেটআপ উইজার্ড) ধাপ ৬-এ গিয়ে <span class="kbd">Choose downloaded JSON file…</span> চাপুন, তারপর এইমাত্র ডাউনলোড করা ফাইলটি বেছে নিন (সাধারণত <em>Downloads</em> ফোল্ডারে থাকে)।</span></li>
+              <li><span lang="en">Or: drag the <code>.json</code> file onto the app window, or paste the <b>Client ID</b> and <b>Client secret</b>.</span><span lang="bn">অথবা: <code>.json</code> ফাইলটি টেনে এনে অ্যাপের উইন্ডোতে ছেড়ে দিন, কিংবা <b>Client ID</b> আর <b>Client secret</b> পেস্ট করুন।</span></li>
+            </ol>
+            <div class="open-row">
+              <a class="btn btn-ghost" href="https://github.com/shimentosh/google-drive-backup-downloader/releases/latest"><svg aria-hidden="true"><use href="#i-windows"/></svg><span lang="en">Don't have the app yet? Download</span><span lang="bn">অ্যাপটি এখনো নেই? ডাউনলোড করুন</span></a>
+            </div>
+            <figure>
+              <div class="window">
+                <div class="window-bar" aria-hidden="true">
+                  <svg class="mini" style="color:var(--accent)"><use href="#i-shield"/></svg>
+                  <span class="title">Google Drive Backup Downloader</span>
+                  <span class="win-ctrl">
+                    <span><svg viewBox="0 0 12 12"><path d="M1 6h10" stroke="currentColor" stroke-width="1.2"/></svg></span>
+                    <span><svg viewBox="0 0 12 12"><rect x="1.5" y="1.5" width="9" height="9" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></span>
+                    <span><svg viewBox="0 0 12 12"><path d="m1.5 1.5 9 9m0-9-9 9" stroke="currentColor" stroke-width="1.2"/></svg></span>
+                  </span>
+                </div>
+                <picture>
+                  <source srcset="assets/screenshots/welcome-setup-light.png" media="(prefers-color-scheme: light)">
+                  <img src="assets/screenshots/welcome-setup.png" width="1280" height="900" loading="lazy" decoding="async"
+                       alt="The app's setup wizard on the welcome screen: five numbered Google Cloud steps with Open buttons, and step 6 with the Choose downloaded JSON file button">
+                </picture>
+              </div>
+              <figcaption><span lang="en"><strong>The app's setup wizard.</strong> Steps 1–5 have one-click “Open” buttons; step 6 is <b>Choose downloaded JSON file…</b></span><span lang="bn"><strong>অ্যাপের সেটআপ উইজার্ড।</strong> ধাপ ১–৫-এ এক ক্লিকের “Open” বাটন আছে; ধাপ ৬ হলো <b>Choose downloaded JSON file…</b></span></figcaption>
+            </figure>
+            <div class="done-row">
+              <label class="done-toggle"><input type="checkbox" data-done="6"><span lang="en">I've done this step</span><span lang="bn">এই ধাপটি শেষ করেছি</span></label>
+              <a class="next-link" href="#step-7"><span lang="en">Next: Step 7</span><span lang="bn">পরের ধাপ: ৭</span> &rarr;</a>
+            </div>
+          </div>
+        </section>
+
+        <!-- STEP 7 -->
+        <section class="stepcard" id="step-7" aria-labelledby="step-7-title" data-step="7">
+          <div class="s-head">
+            <span class="step-num" aria-hidden="true">7</span>
+            <div>
+              <span class="s-kicker"><span lang="en">Step 7 of 7</span><span lang="bn">ধাপ ৭ / ৭</span></span>
+              <h2 id="step-7-title"><span lang="en">Connect your Google account</span><span lang="bn">আপনার Google অ্যাকাউন্ট কানেক্ট করুন</span></h2>
+            </div>
+          </div>
+          <div class="s-body">
+            <ol class="sub">
+              <li><span lang="en">In the app, click <span class="kbd">Connect Google Drive</span>. Your browser opens.</span><span lang="bn">অ্যাপে <span class="kbd">Connect Google Drive</span> চাপুন। আপনার ব্রাউজার খুলে যাবে।</span></li>
+              <li><span lang="en">Choose your Google account.</span><span lang="bn">আপনার Google অ্যাকাউন্টটি বেছে নিন।</span></li>
+              <li><span lang="en">Google shows <em>“Google hasn't verified this app”</em>. <b>This is expected</b> — <b>you</b> are the developer of your own private key. Click <span class="kbd">Continue</span>. (If you only see <span class="kbd">Advanced</span>, click <span class="kbd">Advanced</span> → <span class="kbd">Go to &lt;app name&gt; (unsafe)</span>.)</span><span lang="bn">Google দেখাবে <em>“Google hasn't verified this app”</em>। <b>এটা স্বাভাবিক</b> — কারণ এই প্রাইভেট key-এর ডেভেলপার <b>আপনি নিজেই</b>। <span class="kbd">Continue</span> চাপুন। (যদি শুধু <span class="kbd">Advanced</span> দেখেন, তাহলে <span class="kbd">Advanced</span> → <span class="kbd">Go to &lt;app name&gt; (unsafe)</span> চাপুন।)</span></li>
+            </ol>
+
+            <figure>
+              <div class="mock" aria-hidden="true">
+                <div class="m-chrome"><span class="m-dots"><i></i><i></i><i></i></span><span class="m-url">accounts.google.com</span></div>
+                <div class="m-body">
+                  <div class="m-shield"><svg viewBox="0 0 24 24"><use href="#i-warn"/></svg></div>
+                  <div class="m-h">Google hasn’t verified this app</div>
+                  <p class="m-p">The app is requesting access to sensitive info in your Google Account. Until the developer (you@gmail.com) verifies this app with Google, you shouldn't use it.</p>
+                  <div class="m-actions spread">
+                    <span class="m-btn hl">Continue</span>
+                    <span class="m-btn fill">Back to safety</span>
+                  </div>
+                  <div class="m-note"><svg viewBox="0 0 24 24"><use href="#i-info"/></svg><span lang="en">The developer is you — it's safe to continue.</span><span lang="bn">ডেভেলপার আপনি নিজেই — তাই Continue করা নিরাপদ।</span></div>
+                </div>
+              </div>
+              <figcaption><span lang="en"><strong>Click “Continue”.</strong> Illustration — your screen may look slightly different.</span><span lang="bn"><strong>“Continue” চাপুন।</strong> এটি একটি উদাহরণ ছবি — আপনার স্ক্রিন একটু আলাদা দেখাতে পারে।</span></figcaption>
+            </figure>
+
+            <ol class="sub" start="4" style="counter-reset:sub 3;margin-top:22px">
+              <li><span lang="en">On the permission screen, <b>tick the checkbox</b> <em>“See and download all your Google Drive files”</em> (wording may vary slightly) → <span class="kbd">Continue</span>.</span><span lang="bn">পারমিশন স্ক্রিনে <em>“See and download all your Google Drive files”</em> <b>চেকবক্সে টিক দিন</b> (লেখাটা সামান্য আলাদা হতে পারে) → <span class="kbd">Continue</span>।</span></li>
+            </ol>
+
+            <figure>
+              <div class="mock" aria-hidden="true">
+                <div class="m-chrome"><span class="m-dots"><i></i><i></i><i></i></span><span class="m-url">accounts.google.com</span></div>
+                <div class="m-body">
+                  <div class="m-h">My Drive Backup wants access to your Google Account</div>
+                  <span class="m-account"><span class="m-avatar">Y</span>you@gmail.com</span>
+                  <p class="m-p">Select what <b>My Drive Backup</b> can access</p>
+                  <div class="m-check hl" data-n="1"><span class="m-box"></span><span>See and download all your Google Drive files. <small>Learn more</small></span></div>
+                  <div class="m-actions">
+                    <span class="m-btn outline">Cancel</span>
+                    <span class="m-btn fill hl" data-n="2">Continue</span>
+                  </div>
+                </div>
+              </div>
+              <figcaption><span lang="en"><strong>Tick the Google Drive checkbox (1), then click “Continue” (2).</strong> Illustration — your screen may look slightly different.</span><span lang="bn"><strong>Google Drive চেকবক্সে টিক দিন (১), তারপর “Continue” চাপুন (২)।</strong> এটি একটি উদাহরণ ছবি — আপনার স্ক্রিন একটু আলাদা দেখাতে পারে।</span></figcaption>
+            </figure>
+
+            <div class="callout warn" role="note">
+              <svg aria-hidden="true"><use href="#i-warn"/></svg>
+              <div class="c-body">
+                <p lang="en"><strong>Don't leave the checkbox empty.</strong> If it isn't ticked, the app doesn't get permission to read your Drive and connecting fails.</p>
+                <p lang="bn"><strong>চেকবক্স খালি রাখবেন না।</strong> টিক না দিলে অ্যাপটি আপনার Drive দেখার অনুমতি পাবে না, আর কানেক্ট হবে না।</p>
+              </div>
+            </div>
+
+            <ol class="sub" style="counter-reset:sub 4;margin-top:22px">
+              <li><span lang="en">The browser says you can close the tab. Back in the app, you'll see your account.</span><span lang="bn">ব্রাউজারে লেখা আসবে যে ট্যাবটি বন্ধ করতে পারেন। অ্যাপে ফিরে গেলে আপনার অ্যাকাউন্ট দেখতে পাবেন।</span></li>
+              <li><span lang="en">Choose a destination folder and click <span class="kbd">Back Up Entire Drive</span>.</span><span lang="bn">একটি destination folder (যেখানে ব্যাকআপ রাখবেন) বেছে নিন, তারপর <span class="kbd">Back Up Entire Drive</span> চাপুন।</span></li>
+            </ol>
+            <div class="done-row">
+              <label class="done-toggle"><input type="checkbox" data-done="7"><span lang="en">I've done this step</span><span lang="bn">এই ধাপটি শেষ করেছি</span></label>
+              <a class="next-link" href="#publish"><span lang="en">Next: stop the weekly re-login</span><span lang="bn">পরের ধাপ: সাপ্তাহিক রি-লগইন বন্ধ</span> &rarr;</a>
+            </div>
+          </div>
+        </section>
+
+        <div class="success" id="all-done">
+          <svg aria-hidden="true"><use href="#i-party"/></svg>
+          <h2><span lang="en">That's it — you're connected!</span><span lang="bn">ব্যস, কানেক্ট হয়ে গেছে!</span></h2>
+          <p lang="en">From now on, every backup is a single click. Run it again any time and only new or changed files are downloaded.</p>
+          <p lang="bn">এখন থেকে প্রতিবার ব্যাকআপ নিতে শুধু একটি ক্লিক। যখন খুশি আবার চালান — শুধু নতুন বা পরিবর্তিত ফাইলগুলোই ডাউনলোড হবে।</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <section class="section" id="publish" aria-labelledby="publish-title">
+    <div class="wrap">
+      <div class="optional">
+        <span class="badge"><span lang="en">OPTIONAL</span><span lang="bn">ঐচ্ছিক</span></span>
+        <h2 id="publish-title"><span lang="en">Optional but recommended: stop the weekly re-login</span><span lang="bn">ঐচ্ছিক, তবে করে রাখা ভালো: প্রতি সপ্তাহে আবার লগইন করা বন্ধ করুন</span></h2>
+        <p lang="en">While your app is in <b>Testing</b> mode, Google signs you out every <b>7 days</b> (sign-ins for Testing apps expire after a week). To stop that:</p>
+        <p lang="bn">আপনার অ্যাপ <b>Testing</b> মোডে থাকলে Google প্রতি <b>৭ দিন</b> পর পর আপনাকে সাইন আউট করে দেয় (Testing অ্যাপের সাইন-ইন এক সপ্তাহ পর মেয়াদোত্তীর্ণ হয়)। এটা বন্ধ করতে:</p>
+        <ol class="sub">
+          <li><span lang="en">Open the <b>Audience</b> page.</span><span lang="bn"><b>Audience</b> পেজটি খুলুন।</span></li>
+          <li><span lang="en">Under <b>Publishing status</b>, click <span class="kbd">Publish app</span>.</span><span lang="bn"><b>Publishing status</b> অংশে <span class="kbd">Publish app</span> চাপুন।</span></li>
+          <li><span lang="en">Click <span class="kbd">Confirm</span>.</span><span lang="bn"><span class="kbd">Confirm</span> চাপুন।</span></li>
+        </ol>
+        <div class="open-row">
+          <a class="btn btn-primary" href="https://console.cloud.google.com/auth/audience" target="_blank" rel="noopener"><span lang="en">Open this page</span><span lang="bn">এই পেজটি খুলুন</span><svg aria-hidden="true"><use href="#i-ext"/></svg><span class="sr-only"> (opens in a new tab)</span></a>
+          <span class="url">console.cloud.google.com/auth/audience</span>
+        </div>
+        <div class="callout tip" role="note">
+          <svg aria-hidden="true"><use href="#i-info"/></svg>
+          <div class="c-body">
+            <p lang="en">Personal use (under 100 users) <b>doesn't need Google verification</b>. You'll still click through the “unverified app” screen once.</p>
+            <p lang="bn">ব্যক্তিগত ব্যবহারের জন্য (১০০ জনের কম ইউজার) <b>Google verification লাগে না</b>। শুধু “unverified app” স্ক্রিনটি একবার পার হতে হবে।</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="troubleshooting" aria-labelledby="trouble-title">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow"><span lang="en">Troubleshooting</span><span lang="bn">সমস্যার সমাধান</span></span>
+        <h2 id="trouble-title"><span lang="en">Something went wrong?</span><span lang="bn">কোনো সমস্যা হচ্ছে?</span></h2>
+        <p lang="en">Find the exact message you see and follow the fix.</p>
+        <p lang="bn">আপনি যে মেসেজটি দেখছেন সেটি খুঁজে নিন, তারপর সমাধানটি অনুসরণ করুন।</p>
+      </div>
+      <div class="faq">
+        <details id="fix-403">
+          <summary><h3><span class="err">403</span>“Access blocked” / Error 403: access_denied</h3><span class="chev" aria-hidden="true"><svg><use href="#i-chev"/></svg></span></summary>
+          <div class="answer">
+            <p lang="en">Your Gmail isn't on the test user list. Do <a href="#step-4">Step 4</a> (add yourself as a test user), or <a href="#publish">publish the app</a>.</p>
+            <p lang="bn">আপনার Gmail টেস্ট ইউজার লিস্টে নেই। <a href="#step-4">ধাপ ৪</a> করুন (নিজেকে test user হিসেবে যোগ করুন), অথবা <a href="#publish">অ্যাপটি Publish করুন</a>।</p>
+          </div>
+        </details>
+        <details id="fix-400">
+          <summary><h3><span class="err">400</span>Error 400: redirect_uri_mismatch</h3><span class="chev" aria-hidden="true"><svg><use href="#i-chev"/></svg></span></summary>
+          <div class="answer">
+            <p lang="en">The key is the wrong type (usually “Web application”). Go to <a href="https://console.cloud.google.com/auth/clients" target="_blank" rel="noopener">Clients</a>, create a new client with type <b>Desktop app</b> (<a href="#step-5">Step 5</a>), and give the new JSON file to the app.</p>
+            <p lang="bn">key-টি ভুল ধরনের (সাধারণত “Web application”)। <a href="https://console.cloud.google.com/auth/clients" target="_blank" rel="noopener">Clients</a> পেজে গিয়ে <b>Desktop app</b> টাইপের নতুন একটি client তৈরি করুন (<a href="#step-5">ধাপ ৫</a>), তারপর নতুন JSON ফাইলটি অ্যাপকে দিন।</p>
+          </div>
+        </details>
+        <details id="fix-api">
+          <summary><h3>“Google Drive API has not been used in project … or it is disabled”</h3><span class="chev" aria-hidden="true"><svg><use href="#i-chev"/></svg></span></summary>
+          <div class="answer">
+            <p lang="en">Do <a href="#step-2">Step 2</a> in the <b>same project</b> your key belongs to. Then wait a few minutes and try again.</p>
+            <p lang="bn">যে প্রজেক্টে key বানিয়েছেন, <b>ঠিক সেই প্রজেক্টেই</b> <a href="#step-2">ধাপ ২</a> করুন। তারপর কয়েক মিনিট অপেক্ষা করে আবার চেষ্টা করুন।</p>
+          </div>
+        </details>
+        <details id="fix-noclient">
+          <summary><h3><span lang="en">“No Google OAuth client was found” (in the app)</span><span lang="bn">অ্যাপে “No Google OAuth client was found” দেখাচ্ছে</span></h3><span class="chev" aria-hidden="true"><svg><use href="#i-chev"/></svg></span></summary>
+          <div class="answer">
+            <p lang="en">The app doesn't have your key yet. Do <a href="#step-6">Step 6</a>: choose the downloaded JSON file on the welcome screen.</p>
+            <p lang="bn">অ্যাপটি এখনো আপনার key পায়নি। <a href="#step-6">ধাপ ৬</a> করুন: ওয়েলকাম স্ক্রিনে ডাউনলোড করা JSON ফাইলটি বেছে দিন।</p>
+          </div>
+        </details>
+        <details id="fix-secret">
+          <summary><h3><span lang="en">I lost the client secret / closed the dialog</span><span lang="bn">client secret হারিয়ে ফেলেছি / ডায়ালগ বন্ধ করে ফেলেছি</span></h3><span class="chev" aria-hidden="true"><svg><use href="#i-chev"/></svg></span></summary>
+          <div class="answer">
+            <p lang="en">No problem. Google shows the secret only once, so just create a new client (<a href="#step-5">Step 5</a>) and click <b>Download JSON</b> right away.</p>
+            <p lang="bn">কোনো সমস্যা নেই। Google secret মাত্র একবার দেখায়, তাই নতুন একটি client তৈরি করুন (<a href="#step-5">ধাপ ৫</a>) আর সাথে সাথে <b>Download JSON</b> চাপুন।</p>
+          </div>
+        </details>
+        <details id="fix-week">
+          <summary><h3><span lang="en">The app asks me to sign in again after a week</span><span lang="bn">এক সপ্তাহ পর অ্যাপ আবার সাইন ইন করতে বলছে</span></h3><span class="chev" aria-hidden="true"><svg><use href="#i-chev"/></svg></span></summary>
+          <div class="answer">
+            <p lang="en">This is normal while your app is in Testing mode. <a href="#publish">Publish the app</a> to stop it.</p>
+            <p lang="bn">অ্যাপ Testing মোডে থাকলে এটা স্বাভাবিক। এটা বন্ধ করতে <a href="#publish">অ্যাপটি Publish করুন</a>।</p>
+          </div>
+        </details>
+        <details id="fix-smartscreen">
+          <summary><h3>“Windows protected your PC”</h3><span class="chev" aria-hidden="true"><svg><use href="#i-chev"/></svg></span></summary>
+          <div class="answer">
+            <p lang="en">The app isn't code-signed, so Windows shows this warning the first time. Click <b>More info</b> → <b>Run anyway</b>.</p>
+            <p lang="bn">অ্যাপটি code-signed নয়, তাই প্রথমবার Windows এই সতর্কবার্তা দেখায়। <b>More info</b> → <b>Run anyway</b> চাপুন।</p>
+          </div>
+        </details>
+      </div>
+      <p class="faq" style="margin-top:18px;color:var(--text-3);font-size:14.5px;text-align:center;display:block">
+        <span lang="en">Still stuck? <a href="https://github.com/shimentosh/google-drive-backup-downloader/issues">Open an issue on GitHub</a>.</span>
+        <span lang="bn">এখনো সমস্যা? <a href="https://github.com/shimentosh/google-drive-backup-downloader/issues">GitHub-এ একটি issue খুলুন</a>।</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="faq" aria-labelledby="faq-title">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">FAQ</span>
+        <h2 id="faq-title"><span lang="en">Quick questions</span><span lang="bn">সাধারণ কিছু প্রশ্ন</span></h2>
+      </div>
+      <div class="faq">
+        <details>
+          <summary><h3><span lang="en">Is it free?</span><span lang="bn">এটা কি ফ্রি?</span></h3><span class="chev" aria-hidden="true"><svg><use href="#i-chev"/></svg></span></summary>
+          <div class="answer">
+            <p lang="en">Yes. Standard use of the Drive API costs nothing, and you don't need a billing account.</p>
+            <p lang="bn">হ্যাঁ। Drive API-এর সাধারণ ব্যবহারে কোনো খরচ নেই, আর কোনো billing account-ও লাগে না।</p>
+          </div>
+        </details>
+        <details>
+          <summary><h3><span lang="en">Is it safe?</span><span lang="bn">এটা কি নিরাপদ?</span></h3><span class="chev" aria-hidden="true"><svg><use href="#i-chev"/></svg></span></summary>
+          <div class="answer">
+            <p lang="en">Yes. The app only asks for read-only access (<code>drive.readonly</code>), so it can't change or delete anything. Your key stays on your PC, your sign-in token is stored in Windows Credential Manager, and no third-party server is involved.</p>
+            <p lang="bn">হ্যাঁ। অ্যাপটি শুধু read-only অনুমতি (<code>drive.readonly</code>) চায়, তাই কিছু বদলাতে বা মুছতে পারে না। আপনার key আপনার পিসিতেই থাকে, সাইন-ইন টোকেন রাখা হয় Windows Credential Manager-এ, আর মাঝখানে কোনো থার্ড-পার্টি সার্ভার নেই।</p>
+          </div>
+        </details>
+        <details>
+          <summary><h3><span lang="en">Can I use it for multiple Gmail accounts?</span><span lang="bn">একাধিক Gmail অ্যাকাউন্টে কি ব্যবহার করা যাবে?</span></h3><span class="chev" aria-hidden="true"><svg><use href="#i-chev"/></svg></span></summary>
+          <div class="answer">
+            <p lang="en">Yes. Add each Gmail as a test user (<a href="#step-4">Step 4</a>), or <a href="#publish">publish the app</a>. Then connect one account at a time in the app.</p>
+            <p lang="bn">হ্যাঁ। প্রতিটি Gmail-কে test user হিসেবে যোগ করুন (<a href="#step-4">ধাপ ৪</a>), অথবা <a href="#publish">অ্যাপটি Publish করুন</a>। তারপর অ্যাপে একবারে একটি করে অ্যাকাউন্ট কানেক্ট করুন।</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="final-title">
+    <div class="wrap">
+      <div class="final">
+        <svg class="big" aria-hidden="true" style="color:var(--accent)"><use href="#i-shield"/></svg>
+        <h2 id="final-title"><span lang="en">Own a copy of your Google Drive</span><span lang="bn">আপনার Google Drive-এর একটি কপি নিজের কাছে রাখুন</span></h2>
+        <p lang="en">Free, open source and read-only. Set it up once, then keep your backup current with a single click.</p>
+        <p lang="bn">ফ্রি, ওপেন সোর্স আর read-only। একবার সেটআপ করুন, তারপর এক ক্লিকেই ব্যাকআপ আপডেট রাখুন।</p>
+        <div class="cta-row">
+          <a class="btn btn-primary btn-lg" href="https://github.com/shimentosh/google-drive-backup-downloader/releases/latest"><svg aria-hidden="true"><use href="#i-windows"/></svg><span lang="en">Download for Windows</span><span lang="bn">Windows-এর জন্য ডাউনলোড</span></a>
+          <a class="btn btn-ghost btn-lg" href="./"><span lang="en">Back to home</span><span lang="bn">হোমে ফিরে যান</span> <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a class="brand" href="./">
+          <svg aria-hidden="true" style="color:var(--accent)"><use href="#i-shield"/></svg>
+          <span class="brand-text"><span class="brand-name">Google Drive Backup Downloader</span></span>
+        </a>
+        <p class="brand-by" style="margin-top:10px">Made by <a href="https://shimanto.xyz" rel="author">shimanto.xyz</a></p>
+      </div>
+      <nav aria-label="Footer">
+        <ul class="foot-links">
+          <li><a href="./"><span lang="en">Home</span><span lang="bn">হোম</span></a></li>
+          <li><a href="https://github.com/shimentosh/google-drive-backup-downloader">GitHub</a></li>
+          <li><a href="https://github.com/shimentosh/google-drive-backup-downloader/releases">Releases</a></li>
+          <li><a href="https://github.com/shimentosh/google-drive-backup-downloader/issues">Issues</a></li>
+          <li><a href="https://github.com/shimentosh/google-drive-backup-downloader/blob/main/LICENSE">License (MIT)</a></li>
+          <li><a href="https://shimanto.xyz">shimanto.xyz</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; 2026 Shimanto. Released under the MIT License.</span>
+      <span>Not affiliated with or endorsed by Google. Google Drive is a trademark of Google LLC.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var d=document.documentElement;
+  var TITLE_EN=document.title;
+  var TITLE_BN='Google Drive কানেক্ট করার নিয়ম – সেটআপ গাইড | Google Drive Backup Downloader';
+  function lsGet(k){try{return localStorage.getItem(k)}catch(e){return null}}
+  function lsSet(k,v){try{localStorage.setItem(k,v)}catch(e){}}
+  function bnDigits(n){return String(n).replace(/\d/g,function(c){return '০১২৩৪৫৬৭৮৯'.charAt(+c)})}
+
+  // Language toggle
+  var langBtns=[].slice.call(document.querySelectorAll('[data-set-lang]'));
+  function applyLang(l,save){
+    d.setAttribute('data-lang',l); d.lang=l;
+    document.title=l==='bn'?TITLE_BN:TITLE_EN;
+    langBtns.forEach(function(b){b.setAttribute('aria-pressed',b.getAttribute('data-set-lang')===l?'true':'false')});
+    if(save)lsSet('gdbd-lang',l);
+  }
+  langBtns.forEach(function(b){b.removeAttribute('lang');b.addEventListener('click',function(){applyLang(b.getAttribute('data-set-lang'),true)})});
+  applyLang(d.getAttribute('data-lang')==='bn'?'bn':'en',false);
+
+  // Progress tracker
+  var TOTAL=7, KEY='gdbd-setup-done';
+  var boxes=[].slice.call(document.querySelectorAll('[data-done]'));
+  var done={};
+  try{(JSON.parse(lsGet(KEY)||'[]')||[]).forEach(function(n){done[n]=true})}catch(e){}
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function render(){
+    var c=0;
+    boxes.forEach(function(b){
+      var n=b.getAttribute('data-done'), on=!!done[n];
+      b.checked=on; if(on)c++;
+      var card=document.getElementById('step-'+n); if(card)card.classList.toggle('is-done',on);
+      var li=document.querySelector('.t-list li[data-t="'+n+'"]'); if(li)li.classList.toggle('done',on);
+    });
+    document.getElementById('bar-fill').style.width=(c/TOTAL*100)+'%';
+    var bar=document.getElementById('bar'); bar.setAttribute('aria-valuenow',c);
+    bar.setAttribute('aria-valuetext',c+' of '+TOTAL+' steps done');
+    document.getElementById('count-en').textContent=c+' of '+TOTAL+' done';
+    document.getElementById('count-bn').textContent=bnDigits(c)+'/'+bnDigits(TOTAL)+' শেষ';
+  }
+  function save(){var a=[];for(var k in done){if(done[k])a.push(+k)}lsSet(KEY,JSON.stringify(a))}
+  boxes.forEach(function(b){
+    b.addEventListener('change',function(){
+      var n=+b.getAttribute('data-done');
+      done[n]=b.checked; save(); render();
+      if(b.checked){
+        var next=document.getElementById(n<TOTAL?'step-'+(n+1):'all-done');
+        if(next)setTimeout(function(){next.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'})},260);
+      }
+    });
+  });
+  var reset=document.getElementById('reset');
+  if(reset)reset.addEventListener('click',function(){done={};save();render()});
+  render();
+
+  // Highlight the current step in the tracker
+  var links={};
+  [].slice.call(document.querySelectorAll('.t-list a')).forEach(function(a){links[a.getAttribute('href').slice(1)]=a});
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){
+          for(var k in links)links[k].removeAttribute('aria-current');
+          var a=links[en.target.id]; if(a)a.setAttribute('aria-current','step');
+        }
+      });
+    },{rootMargin:'-35% 0px -60% 0px',threshold:0});
+    [].slice.call(document.querySelectorAll('.stepcard')).forEach(function(s){io.observe(s)});
+  }
+
+  // Open the matching troubleshooting entry when linked directly
+  function openHash(){var h=location.hash&&document.getElementById(location.hash.slice(1));if(h&&h.tagName==='DETAILS')h.open=true}
+  window.addEventListener('hashchange',openHash); openHash();
+})();
+</script>
+</body>
+</html>

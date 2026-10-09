@@ -56,6 +56,12 @@ def classify_status(status: int, body: str = "") -> DownloadError:
             "Google rejected the saved authorisation. Reconnect your account."
         )
     if status == 403:
+        if ("accessnotconfigured" in lowered.replace(" ", "")
+                or "service_disabled" in lowered):
+            return AuthorizationRequired(
+                "The Google Drive API is turned off for your Google Cloud project. "
+                "Enable it, then resume the backup."
+            )
         if "ratelimitexceeded" in lowered.replace(" ", "") or "quota" in lowered:
             return DownloadError(
                 "Rate limit exceeded - Google is throttling requests.",

@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.2.0 (2026-10-09)
+
+### Added
+- **Guided first-run setup.** The welcome screen walks through the one-time Google setup in 5 numbered steps, each with an **Open** button that goes straight to the right Google Cloud page and a **Show me** link to the illustrated guide.
+- **Illustrated setup guide** on the website in English and বাংলা, with troubleshooting for every common Google error.
+- While the browser is open for sign-in, the app explains what Google will show ("Google hasn't verified this app" → Continue, then tick the Drive permission).
+
+### Changed
+- Setup instructions follow Google's current console (Google Auth platform → Branding, Audience, Clients).
+- Sign-in and scan errors are rewritten into plain fixes: not a test user (Error 403), wrong client type (Error 400 redirect_uri_mismatch), Drive API turned off, and the weekly sign-out caused by Google's 7-day limit for apps in Testing mode (with the "Publish app" fix).
+
 ## 1.1.0 (2026-10-09)
 
 ### Added

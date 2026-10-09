@@ -16,13 +16,51 @@ from PySide6.QtWidgets import (
     QWidget,
 )
 
-from ..constants import APP_NAME, APP_SUBTITLE
+from ..constants import APP_NAME, APP_SUBTITLE, SETUP_GUIDE_URL
 from ..services.event_bus import AppState
 from ..utils.formatting import format_bytes
 from .icons import icon
 from .theme import Palette
 from .widgets.common import Banner, Card, Divider, KeyValue
 from .widgets.progress import ProgressBar
+
+
+#: The one-time Google Cloud setup, in the order a first-time user does it.
+#: Each step opens the exact console page, so nobody has to hunt through menus.
+#: (title, what to do there, anchor in the online guide, console URL)
+SETUP_STEPS = [
+    ("Create a Google Cloud project",
+     "Sign in with the Gmail you want to back up. Name it anything, then Create.",
+     "step-1", "https://console.cloud.google.com/projectcreate"),
+    ("Turn on the Google Drive API",
+     "Check your new project is selected, then click Enable.",
+     "step-2",
+     "https://console.cloud.google.com/flows/enableapi?apiid=drive.googleapis.com"),
+    ("Set up the sign-in screen",
+     "Get Started \u2192 any app name + your email \u2192 Audience: External "
+     "\u2192 your email \u2192 tick the policy box \u2192 Create.",
+     "step-3", "https://console.cloud.google.com/auth/branding"),
+    ("Add yourself as a test user",
+     "Under Test users, click Add users, type your Gmail, Save. "
+     "Skipping this causes \"Access blocked\".",
+     "step-4", "https://console.cloud.google.com/auth/audience"),
+    ("Create a Desktop app key",
+     "Create Client \u2192 Application type: Desktop app \u2192 Create. "
+     "Click Download JSON straight away: Google shows the secret only once.",
+     "step-5", "https://console.cloud.google.com/auth/clients"),
+]
+
+#: Shown while the browser is open, because Google's screens surprise people.
+_CONNECT_HINT = (
+    "Your browser is open. Choose your Google account, then:\n"
+    "\u2022 \"Google hasn't verified this app\" \u2192 click Continue "
+    "(it's your own private key, so this is expected)\n"
+    "\u2022 Tick \"See and download all your Google Drive files\" \u2192 Continue"
+)
+
+
+def _open(url: str) -> None:
+    QDesktopServices.openUrl(QUrl(url))
 
 
 class WelcomePage(QWidget):
@@ -62,7 +100,7 @@ class WelcomePage(QWidget):
         centre.addStretch(1)
 
         self.card = Card(padding=40, spacing=16)
-        self.card.setFixedWidth(520)
+        self.card.setFixedWidth(580)
         self.card.with_shadow(palette)
 
         logo = QLabel()
@@ -115,6 +153,7 @@ class WelcomePage(QWidget):
 
         self.status = QLabel("")
         self.status.setObjectName("Faint")
+        self.status.setWordWrap(True)
         self.status.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.card.add(self.status)
 
@@ -144,10 +183,10 @@ class WelcomePage(QWidget):
         self.change_client_button.setVisible(False)
         self.card.add(self.change_client_button)
 
-        help_button = QPushButton("How do I set up Google OAuth credentials?")
+        help_button = QPushButton("Step-by-step guide with pictures (English & \u09ac\u09be\u0982\u09b2\u09be)")
         help_button.setObjectName("Ghost")
         help_button.setCursor(Qt.CursorShape.PointingHandCursor)
-        help_button.clicked.connect(self.setup_help_requested.emit)
+        help_button.clicked.connect(lambda: _open(SETUP_GUIDE_URL))
         self.card.add(help_button)
 
         centre.addWidget(self.card)
@@ -170,30 +209,63 @@ class WelcomePage(QWidget):
         layout.setContentsMargins(0, 0, 0, 0)
         layout.setSpacing(8)
 
-        console_button = QPushButton("1.  Open Google Cloud Console")
-        console_button.setCursor(Qt.CursorShape.PointingHandCursor)
-        console_button.clicked.connect(
-            lambda: QDesktopServices.openUrl(
-                QUrl("https://console.cloud.google.com/apis/credentials")
-            )
+        heading = QLabel("One-time setup \u00b7 about 5 minutes")
+        heading.setObjectName("SectionTitle")
+        heading.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        layout.addWidget(heading)
+        intro = QLabel(
+            "This app connects to Google with your own free key, so your files never "
+            "pass through anyone else's server. No credit card needed. Do each step "
+            "in your browser, then come back here."
         )
-        layout.addWidget(console_button)
+        intro.setObjectName("Faint")
+        intro.setWordWrap(True)
+        intro.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        layout.addWidget(intro)
+        layout.addSpacing(4)
 
-        browse_button = QPushButton("2.  Choose downloaded JSON file...")
+        self.step_rows: list[QWidget] = []
+        for number, (title, detail, anchor, url) in enumerate(SETUP_STEPS, start=1):
+            row = self._step_row(number, title, detail, url,
+                                 f"{SETUP_GUIDE_URL}#{anchor}")
+            self.step_rows.append(row)
+            layout.addWidget(row)
+
+        final = Card(padding=12, spacing=8, sub=True)
+        final_title = QLabel(f"{len(SETUP_STEPS) + 1}.  Add the downloaded file here")
+        final_title.setObjectName("CardValueSmall")
+        final.add(final_title)
+        browse_button = QPushButton("  Choose downloaded JSON file...")
         browse_button.setObjectName("Primary")
+        browse_button.setIcon(icon("folder", self._palette.on_accent, 16))
         browse_button.setCursor(Qt.CursorShape.PointingHandCursor)
         browse_button.clicked.connect(self._browse_credentials)
-        layout.addWidget(browse_button)
+        final.add(browse_button)
+        drop_hint = QLabel("Or drag the .json file onto this window.")
+        drop_hint.setObjectName("Faint")
+        drop_hint.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        final.add(drop_hint)
+        layout.addWidget(final)
 
-        hint = QLabel("You can also drag the JSON file onto this window, "
-                      "or paste the Client ID and secret:")
-        hint.setObjectName("Faint")
-        hint.setWordWrap(True)
-        layout.addWidget(hint)
+        # Pasting is an advanced fallback (e.g. the JSON was lost but the ID was
+        # copied), so it stays folded away to keep the main path obvious.
+        self.paste_toggle = QPushButton("Prefer to paste the Client ID and secret instead?")
+        self.paste_toggle.setObjectName("Ghost")
+        self.paste_toggle.setCursor(Qt.CursorShape.PointingHandCursor)
+        layout.addWidget(self.paste_toggle)
+        self.paste_box = QWidget()
+        paste_layout = QVBoxLayout(self.paste_box)
+        paste_layout.setContentsMargins(0, 0, 0, 0)
+        paste_layout.setSpacing(8)
+        self.paste_box.setVisible(False)
+        self.paste_toggle.clicked.connect(
+            lambda: self.paste_box.setVisible(not self.paste_box.isVisible())
+        )
+        layout.addWidget(self.paste_box)
 
         self.client_id_edit = QLineEdit()
         self.client_id_edit.setPlaceholderText("Client ID  (....apps.googleusercontent.com)")
-        layout.addWidget(self.client_id_edit)
+        paste_layout.addWidget(self.client_id_edit)
 
         secret_row = QHBoxLayout()
         secret_row.setSpacing(8)
@@ -206,8 +278,46 @@ class WelcomePage(QWidget):
         save_button.setCursor(Qt.CursorShape.PointingHandCursor)
         save_button.clicked.connect(self._submit_pair)
         secret_row.addWidget(save_button)
-        layout.addLayout(secret_row)
+        paste_layout.addLayout(secret_row)
         return panel
+
+    def _step_row(self, number: int, title: str, detail: str, url: str,
+                  guide_url: str) -> QWidget:
+        """One numbered setup step with a button that opens its console page."""
+        p = self._palette
+        row = QWidget()
+        layout = QHBoxLayout(row)
+        layout.setContentsMargins(0, 2, 0, 2)
+        layout.setSpacing(12)
+
+        badge = QLabel(str(number))
+        badge.setFixedSize(26, 26)
+        badge.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        badge.setStyleSheet(
+            f"background: {p.accent_soft}; color: {p.accent}; border-radius: 13px;"
+            " font-weight: 600;"
+        )
+        layout.addWidget(badge, 0, Qt.AlignmentFlag.AlignTop)
+
+        text = QVBoxLayout()
+        text.setSpacing(2)
+        name = QLabel(title)
+        name.setObjectName("CardValueSmall")
+        text.addWidget(name)
+        what = QLabel(f'{detail}  <a href="{guide_url}">Show me</a>')
+        what.setObjectName("Faint")
+        what.setWordWrap(True)
+        what.setOpenExternalLinks(True)
+        text.addWidget(what)
+        layout.addLayout(text, 1)
+
+        button = QPushButton("Open")
+        button.setIcon(icon("external", p.text, 14))
+        button.setCursor(Qt.CursorShape.PointingHandCursor)
+        button.setToolTip(url)
+        button.clicked.connect(lambda _c=False, u=url: _open(u))
+        layout.addWidget(button, 0, Qt.AlignmentFlag.AlignTop)
+        return row
 
     def _browse_credentials(self) -> None:
         path, _ = QFileDialog.getOpenFileName(
@@ -265,11 +375,7 @@ class WelcomePage(QWidget):
         self._changing_client = False
         self._client_id = client_id
         if missing:
-            self.banner.show_message(
-                "One-time setup: create a Desktop-app OAuth client in Google Cloud, "
-                "then add it here. See the guide at the bottom for the steps.",
-                "warning",
-            )
+            self.banner.hide_message()
             self.connect_button.setEnabled(False)
         else:
             self.banner.hide_message()
@@ -287,10 +393,7 @@ class WelcomePage(QWidget):
         self.connect_button.setText(
             "  Waiting for Google..." if connecting else "  Connect Google Drive"
         )
-        self.status.setText(
-            "A browser window has opened. Approve access to continue."
-            if connecting else ""
-        )
+        self.status.setText(_CONNECT_HINT if connecting else "")
         if state is AppState.DISCONNECTED:
             self.summary.setVisible(False)
 

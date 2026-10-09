@@ -261,10 +261,7 @@ class GoogleAuthenticator:
             except RefreshError as exc:
                 self.tokens.clear()
                 self._credentials = None
-                raise AuthError(
-                    "Google rejected the saved authorisation (it may have been "
-                    "revoked). Reconnect your account."
-                ) from exc
+                raise AuthError(SESSION_EXPIRED_HELP) from exc
             self.tokens.save(creds)
             return creds
 
@@ -291,23 +288,68 @@ class GoogleAuthenticator:
         log.info("Disconnected Google account")
 
 
+#: Shown when a stored refresh token stops working. By far the most common
+#: cause is Google's 7-day limit for OAuth apps left in "Testing" status.
+SESSION_EXPIRED_HELP = (
+    "Google signed this app out, so please reconnect your account.\n\n"
+    "If this happens about once a week, your Google Cloud app is still in "
+    "Testing mode, where Google ends sign-ins after 7 days. To stop it: "
+    "Google Cloud Console > Google Auth platform > Audience > Publish app."
+)
+
+_API_DISABLED_HELP = (
+    "The Google Drive API is turned off for your Google Cloud project.\n\n"
+    "Open https://console.cloud.google.com/flows/enableapi?apiid=drive.googleapis.com, "
+    "pick the SAME project your OAuth client belongs to, click Enable, wait a "
+    "minute, then try again."
+)
+
+
+def explain_google_error(message: str) -> str:
+    """Rewrite a raw Google error into something a non-technical user can act on.
+
+    Messages that are already friendly, or that are not recognised, pass
+    through unchanged.
+    """
+    lowered = message.lower()
+    if ("accessnotconfigured" in lowered or "service_disabled" in lowered
+            or "has not been used in project" in lowered):
+        return _API_DISABLED_HELP
+    if "invalid_grant" in lowered or "token has been expired or revoked" in lowered:
+        return SESSION_EXPIRED_HELP
+    return message
+
+
 def _friendly_auth_error(exc: Exception) -> str:
     """Translate an OAuth library exception into something actionable."""
     text = str(exc)
     lowered = text.lower()
     if "access_denied" in lowered:
         return (
-            "Access was denied on the Google consent screen. If your OAuth "
-            "consent screen is in Testing mode, add your Google account as a "
-            "test user, then try again."
+            "Google blocked the sign-in (Error 403: access_denied).\n\n"
+            "Almost always this means your Google account is not on the test-user "
+            "list. Fix: Google Cloud Console > Google Auth platform > Audience > "
+            "Test users > Add users, add the Gmail you are signing in with, Save, "
+            "then click Connect again.\n\n"
+            "If you closed the browser or clicked Cancel, just try again. On the "
+            "\"Google hasn't verified this app\" screen, click Continue."
+        )
+    if "scope has changed" in lowered:
+        return (
+            "Google didn't give this app permission to read your Drive.\n\n"
+            "Click Connect again and, on Google's permission screen, tick the box "
+            "\"See and download all your Google Drive files\" before clicking Continue."
         )
     if "timed out" in lowered or "timeout" in lowered:
         return "The sign-in window timed out before consent was granted."
     if "redirect_uri_mismatch" in lowered:
         return (
-            "Google rejected the redirect URI. Make sure the OAuth client is of "
-            'type "Desktop app".'
+            "Google rejected the sign-in (Error 400: redirect_uri_mismatch).\n\n"
+            "Your OAuth client is the wrong type. In Google Auth platform > Clients, "
+            "create a new client with Application type \"Desktop app\", download "
+            "its JSON, and add that file to this app instead."
         )
     if "address already in use" in lowered:
         return "Could not start the local sign-in listener; another app is using the port."
-    return f"Google sign-in failed: {text}"
+    friendly = explain_google_error(text)
+    return friendly if friendly != text else f"Google sign-in failed: {text}"
