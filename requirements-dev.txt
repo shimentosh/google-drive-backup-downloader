@@ -1,0 +1,6 @@
+# Development and packaging dependencies.
+-r requirements.txt
+
+pytest>=8.0
+pytest-qt>=4.4
+pyinstaller>=6.5

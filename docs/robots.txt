@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://shimentosh.github.io/google-drive-backup-downloader/sitemap.xml

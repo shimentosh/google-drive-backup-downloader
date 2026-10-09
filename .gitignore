@@ -1,0 +1,36 @@
+# Secrets - never commit these
+credentials.json
+token.json
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Build output
+build/
+dist/
+*.spec.bak
+
+# Application data (when run with --data-dir .)
+logs/
+*.sqlite3
+*.sqlite3-wal
+*.sqlite3-shm
+settings.json
+
+# OS / editor
+Thumbs.db
+.DS_Store
+.idea/
+.vscode/
+
+# Local release archives (GitHub rejects files over 100 MB)
+*.zip
+release/

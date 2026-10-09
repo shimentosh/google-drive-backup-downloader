@@ -1,0 +1,930 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Google Drive Backup Downloader – Download Your Entire Google Drive (Free)</title>
+<meta name="description" content="Back up your entire Google Drive to your PC or external disk. Free, open-source Windows app: keeps folder structure, resumes downloads, skips unchanged files.">
+<meta name="keywords" content="Google Drive backup, download entire Google Drive, Google Drive downloader, backup Google Drive to external hard drive, Google Takeout alternative, Google Drive backup Windows, open source">
+<meta name="author" content="Shimanto">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://shimentosh.github.io/google-drive-backup-downloader/">
+<meta name="theme-color" content="#0a0e17" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f6f8fc" media="(prefers-color-scheme: light)">
+<meta name="color-scheme" content="dark light">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Google Drive Backup Downloader">
+<meta property="og:url" content="https://shimentosh.github.io/google-drive-backup-downloader/">
+<meta property="og:title" content="Google Drive Backup Downloader – Download Your Entire Google Drive (Free)">
+<meta property="og:description" content="Free, open-source Windows app that backs up your whole Google Drive to a local folder or external disk. Same folder structure, resumable, incremental, read-only.">
+<meta property="og:image" content="https://shimentosh.github.io/google-drive-backup-downloader/assets/social-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Google Drive Backup Downloader – back up your entire Google Drive to your PC">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Google Drive Backup Downloader – Download Your Entire Google Drive (Free)">
+<meta name="twitter:description" content="Free, open-source Windows app that backs up your whole Google Drive to a local folder or external disk. Same folder structure, resumable, incremental, read-only.">
+<meta name="twitter:image" content="https://shimentosh.github.io/google-drive-backup-downloader/assets/social-card.png">
+<meta name="twitter:image:alt" content="Google Drive Backup Downloader – back up your entire Google Drive to your PC">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234b8bff' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 3.2 4.8 6v6.1c0 4.3 3 8.1 7.2 9.2 4.2-1.1 7.2-4.9 7.2-9.2V6z' fill='%234b8bff' fill-opacity='.16'/%3E%3Cpath d='m9.2 12.2 2 2 3.6-4'/%3E%3C/svg%3E">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+
+<script>document.documentElement.classList.add('js');</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Google Drive Backup Downloader",
+  "description": "Free, open-source Windows desktop app that backs up an entire Google Drive to a local folder or external disk, preserving the folder structure, resuming interrupted downloads and skipping unchanged files.",
+  "url": "https://shimentosh.github.io/google-drive-backup-downloader/",
+  "operatingSystem": "Windows 10, Windows 11",
+  "applicationCategory": "UtilitiesApplication",
+  "softwareVersion": "1.1.0",
+  "datePublished": "2026-10-09",
+  "downloadUrl": "https://github.com/shimentosh/google-drive-backup-downloader/releases/latest",
+  "installUrl": "https://github.com/shimentosh/google-drive-backup-downloader/releases/latest",
+  "license": "https://opensource.org/licenses/MIT",
+  "isAccessibleForFree": true,
+  "codeRepository": "https://github.com/shimentosh/google-drive-backup-downloader",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Shimanto",
+    "url": "https://shimanto.xyz"
+  },
+  "image": "https://shimentosh.github.io/google-drive-backup-downloader/assets/social-card.png",
+  "screenshot": [
+    "https://shimentosh.github.io/google-drive-backup-downloader/assets/screenshots/overview.png",
+    "https://shimentosh.github.io/google-drive-backup-downloader/assets/screenshots/backup.png",
+    "https://shimentosh.github.io/google-drive-backup-downloader/assets/screenshots/setup.png",
+    "https://shimentosh.github.io/google-drive-backup-downloader/assets/screenshots/settings.png",
+    "https://shimentosh.github.io/google-drive-backup-downloader/assets/screenshots/welcome.png"
+  ],
+  "featureList": [
+    "Back up the entire Google Drive in one click",
+    "Mirrors the Drive folder structure exactly",
+    "Streams very large files with constant memory use",
+    "Resumes interrupted downloads with HTTP Range requests",
+    "Incremental backups that skip unchanged files",
+    "Verifies size and MD5 checksum",
+    "Exports Google Docs, Sheets, Slides and Drawings",
+    "Read-only Google Drive access",
+    "No telemetry and no third-party servers"
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Google Drive Backup Downloader",
+  "url": "https://shimentosh.github.io/google-drive-backup-downloader/",
+  "inLanguage": "en",
+  "author": {
+    "@type": "Person",
+    "name": "Shimanto",
+    "url": "https://shimanto.xyz"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is Google Drive Backup Downloader safe to use?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. It asks Google only for read-only access (the drive.readonly scope), so it cannot modify or delete anything in your Drive. You sign in on Google’s own page in your browser, so the app never sees your password. Your sign-in token is stored in Windows Credential Manager, and the app contacts no server other than Google’s own API: no telemetry, no analytics. The full source code is on GitHub." }
+    },
+    {
+      "@type": "Question",
+      "name": "Is it really free?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. It is free and open source under the MIT license, with no paid tier, no sign-up and no ads. Creating the Google Cloud project it needs is free as well." }
+    },
+    {
+      "@type": "Question",
+      "name": "Does it download Google Docs, Sheets and Slides?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Google Workspace files are exported to regular formats: Docs to DOCX or PDF, Sheets to XLSX or CSV, Slides to PPTX or PDF, and Drawings to PNG, SVG or PDF. Google Forms, Sites and My Maps have no export format in the Drive API, so they are reported with the reason instead of being silently skipped." }
+    },
+    {
+      "@type": "Question",
+      "name": "How is it different from Google Takeout?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Takeout packs your Drive into zip archives that you have to request, wait for, download and extract, and you start over every time. Google Drive Backup Downloader copies your Drive straight into a normal folder with the same structure, resumes interrupted downloads, and on later runs only fetches new and changed files." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I back up to an external hard drive or a NAS?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. The destination can be any local disk, an external HDD or SSD, or a network path. Before starting, the app checks that there is enough free space. If the drive disconnects mid-backup, reconnect it and resume: completed and partially downloaded files are still there." }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens if my internet connection drops?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Nothing is lost. Each file downloads into a temporary .part file and continues from the exact byte where it stopped, using HTTP Range requests, whether the network dropped, the app crashed or you paused. Temporary errors are retried automatically with backoff, and files that still fail are listed so you can retry them." }
+    },
+    {
+      "@type": "Question",
+      "name": "Does it work on Mac or Linux?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The ready-to-run download is for Windows 10 and 11. The app is written in Python, and its code also runs on macOS and Linux if you run it from source with Python 3.12 or newer." }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do I need to create my own Google Cloud credentials?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The app talks to Google directly from your PC, with no server in between, so it signs in with an OAuth client that belongs to you. Creating one is a free, one-time setup that takes about five minutes, and it means your access is never routed through anyone else." }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does Windows show a SmartScreen warning?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The .exe is not code-signed, so Windows SmartScreen may say “Windows protected your PC” the first time you run it. Click More info, then Run anyway. You can also review the source code or build the .exe yourself from the repository." }
+    },
+    {
+      "@type": "Question",
+      "name": "Will it ever delete my files?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. It cannot change anything in your Google Drive because it only has read-only access, and it never deletes local files either: not when a file disappears from Drive, not on cancel and not on disconnect. Removing files is always your decision." }
+    }
+  ]
+}
+</script>
+
+<style>
+:root{
+  --bg:#0a0e17;
+  --bg-2:#0f1522;
+  --surface:#121a29;
+  --surface-2:#172134;
+  --border:rgba(148,170,210,.14);
+  --border-strong:rgba(148,170,210,.26);
+  --text:#e8edf7;
+  --text-2:#a9b4c8;
+  --text-3:#8390a8;
+  --accent:#4b8bff;
+  --accent-2:#7aa9ff;
+  --accent-ink:#ffffff;
+  --accent-strong:#2f6fe8;
+  --accent-soft:rgba(75,139,255,.14);
+  --good:#3ecf8e;
+  --bad:#ff6b7a;
+  --glow:rgba(75,139,255,.35);
+  --shadow:0 30px 80px -20px rgba(0,0,0,.65),0 0 0 1px var(--border);
+  --radius:16px;
+  --maxw:1160px;
+  --nav-bg:rgba(10,14,23,.72);
+}
+@media (prefers-color-scheme: light){
+  :root{
+    --bg:#f6f8fc;
+    --bg-2:#eef2f9;
+    --surface:#ffffff;
+    --surface-2:#f2f5fb;
+    --border:rgba(30,50,90,.12);
+    --border-strong:rgba(30,50,90,.22);
+    --text:#0d1526;
+    --text-2:#44506a;
+    --text-3:#5d6880;
+    --accent:#2f6fe8;
+    --accent-2:#2f6fe8;
+    --accent-soft:rgba(47,111,232,.10);
+    --accent-strong:#2563eb;
+    --good:#11875a;
+    --bad:#d6334a;
+    --glow:rgba(75,139,255,.28);
+    --shadow:0 30px 70px -25px rgba(20,40,90,.35),0 0 0 1px var(--border);
+    --nav-bg:rgba(246,248,252,.8);
+  }
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--bg);color:var(--text);
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--accent-2);text-decoration:none}
+a:hover{text-decoration:underline}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+h1,h2,h3{line-height:1.15;letter-spacing:-.02em;margin:0}
+p{margin:0}
+code{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.9em;background:var(--accent-soft);padding:.1em .4em;border-radius:6px;color:var(--text)}
+.wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 20px}
+.skip{position:absolute;left:-9999px;top:8px;z-index:100;background:var(--accent);color:#fff;padding:8px 14px;border-radius:8px}
+.skip:focus{left:12px}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.55em;font:inherit;font-weight:600;font-size:15px;
+  padding:12px 20px;border-radius:12px;border:1px solid transparent;cursor:pointer;transition:transform .15s ease,box-shadow .2s ease,background .2s ease;white-space:nowrap}
+.btn:hover{text-decoration:none;transform:translateY(-1px)}
+.btn svg{width:18px;height:18px;flex:none}
+.btn-primary{background:linear-gradient(180deg,#4383f7,#2563eb);color:#fff;box-shadow:0 8px 24px -8px var(--glow),inset 0 1px 0 rgba(255,255,255,.25)}
+.btn-primary:hover{box-shadow:0 12px 32px -8px var(--glow),inset 0 1px 0 rgba(255,255,255,.25)}
+.btn-ghost{background:var(--surface);color:var(--text);border-color:var(--border-strong)}
+.btn-ghost:hover{background:var(--surface-2)}
+.btn-sm{padding:8px 14px;font-size:14px;border-radius:10px}
+.btn-lg{padding:15px 26px;font-size:16px}
+
+/* Nav */
+.nav{position:sticky;top:0;z-index:50;backdrop-filter:saturate(1.6) blur(14px);-webkit-backdrop-filter:saturate(1.6) blur(14px);
+  background:var(--nav-bg);border-bottom:1px solid var(--border)}
+.nav .wrap{display:flex;align-items:center;gap:16px;height:64px}
+.brand{display:flex;align-items:center;gap:10px;color:var(--text);font-weight:700;min-width:0}
+.brand:hover{text-decoration:none}
+.brand svg{width:30px;height:30px;flex:none}
+.brand-text{display:flex;flex-direction:column;line-height:1.15;min-width:0}
+.brand-logo{display:flex;border-radius:8px}
+.brand-name{font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--text)}
+a.brand-name:hover{text-decoration:none}
+.nav-main{margin-left:auto}
+.tabs[hidden]{display:none!important}
+.brand-by{font-size:11.5px;font-weight:500;color:var(--text-3)}
+.brand-by a{color:var(--text-3)}
+.brand-by a:hover{color:var(--accent-2)}
+.nav-links{display:flex;gap:4px;margin-left:auto;list-style:none;padding:0;margin-top:0;margin-bottom:0}
+.nav-links a{color:var(--text-2);font-size:14.5px;font-weight:500;padding:8px 12px;border-radius:8px}
+.nav-links a:hover{color:var(--text);background:var(--accent-soft);text-decoration:none}
+.nav-actions{display:flex;gap:8px;align-items:center}
+@media (max-width:880px){.nav-links{display:none}.nav-actions{margin-left:auto}}
+@media (max-width:520px){.nav .star-btn{display:none}.brand-name{font-size:14px}}
+@media (max-width:380px){.nav .dl-label{display:none}}
+
+/* Hero */
+.hero{position:relative;padding:72px 0 40px;text-align:center;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:-200px -10% auto;height:720px;pointer-events:none;
+  background:radial-gradient(600px 340px at 50% 30%,rgba(75,139,255,.22),transparent 70%),
+             radial-gradient(400px 260px at 20% 10%,rgba(122,92,255,.14),transparent 70%),
+             radial-gradient(400px 260px at 82% 18%,rgba(62,207,142,.10),transparent 70%)}
+.hero .grid-bg{position:absolute;inset:0;pointer-events:none;opacity:.5;
+  background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);
+  background-size:56px 56px;-webkit-mask-image:radial-gradient(ellipse 70% 55% at 50% 20%,#000 30%,transparent 75%);mask-image:radial-gradient(ellipse 70% 55% at 50% 20%,#000 30%,transparent 75%)}
+.hero > .wrap{position:relative}
+.pill{display:inline-flex;align-items:center;gap:8px;padding:6px 14px 6px 8px;border-radius:999px;font-size:13.5px;font-weight:500;color:var(--text-2);
+  background:var(--surface);border:1px solid var(--border-strong);max-width:100%}
+.pill:hover{text-decoration:none;color:var(--text)}
+.pill b{background:var(--accent-strong);color:#fff;font-size:11.5px;font-weight:700;padding:2px 8px;border-radius:999px;letter-spacing:.02em}
+.hero h1{font-size:clamp(34px,6.2vw,66px);font-weight:800;margin:22px auto 0;max-width:15ch;letter-spacing:-.035em}
+.grad{background:linear-gradient(100deg,var(--accent-2) 10%,#9b7bff 55%,#3ecf8e 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+@media (prefers-color-scheme: light){.grad{background:linear-gradient(100deg,#2f6fe8 10%,#6a4be0 60%,#0d8f5c 100%);-webkit-background-clip:text;background-clip:text}}
+.hero .lede{font-size:clamp(16.5px,2vw,19.5px);color:var(--text-2);max-width:640px;margin:20px auto 0}
+.cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:32px}
+.trust{display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:center;margin:26px 0 0;padding:0;list-style:none;color:var(--text-2);font-size:14px;font-weight:500}
+.trust li{display:flex;align-items:center;gap:7px}
+.trust svg{width:17px;height:17px;color:var(--good);flex:none}
+.meta-note{margin-top:14px;font-size:13px;color:var(--text-3)}
+
+/* Window frame */
+.shot-wrap{position:relative;margin:56px auto 0;max-width:1040px}
+.shot-wrap::before{content:"";position:absolute;inset:8% 6% -4%;background:radial-gradient(closest-side,var(--glow),transparent);filter:blur(40px);z-index:0;pointer-events:none}
+.window{position:relative;z-index:1;border-radius:14px;overflow:hidden;background:var(--surface);box-shadow:var(--shadow)}
+.window-bar{display:flex;align-items:center;gap:10px;height:38px;padding:0 0 0 14px;background:var(--surface-2);border-bottom:1px solid var(--border);font-size:12.5px;color:var(--text-3)}
+.window-bar svg.mini{width:15px;height:15px}
+.window-bar .title{flex:1;text-align:left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.win-ctrl{display:flex;height:100%}
+.win-ctrl span{width:44px;display:grid;place-items:center;color:var(--text-3)}
+.win-ctrl svg{width:11px;height:11px}
+@media (max-width:520px){.win-ctrl span{width:30px}}
+.window img{width:100%;aspect-ratio:1280/900;object-fit:cover;background:var(--bg-2)}
+
+/* Sections */
+section{scroll-margin-top:72px}
+.section{padding:96px 0}
+.section.alt{background:linear-gradient(180deg,transparent,var(--bg-2) 18%,var(--bg-2) 82%,transparent)}
+.eyebrow{display:inline-block;font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-2)}
+.section-head{text-align:center;max-width:720px;margin:0 auto 52px}
+.section-head h2{font-size:clamp(28px,4.2vw,44px);font-weight:800;margin-top:12px}
+.section-head p{color:var(--text-2);font-size:17.5px;margin-top:14px}
+
+/* Compare */
+.table-scroll{overflow-x:auto;border-radius:var(--radius);border:1px solid var(--border);background:var(--surface);-webkit-overflow-scrolling:touch}
+table.compare{width:100%;border-collapse:collapse;font-size:15px;min-width:560px}
+.compare caption{text-align:left}
+.compare th,.compare td{padding:16px 20px;text-align:left;vertical-align:top;border-bottom:1px solid var(--border)}
+.compare tbody tr:last-child th,.compare tbody tr:last-child td{border-bottom:0}
+.compare thead th{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--text-3);font-weight:700;background:var(--surface-2)}
+.compare thead th.us{color:var(--accent-2)}
+.compare tbody th{font-weight:600;color:var(--text);width:26%}
+.compare td.us{background:var(--accent-soft);color:var(--text)}
+.compare td{color:var(--text-2)}
+.compare .ic{display:inline-flex;vertical-align:-3px;margin-right:8px}
+.compare .ic svg{width:17px;height:17px}
+.compare .yes{color:var(--good)}
+.compare .no{color:var(--bad)}
+@media (max-width:600px){.compare th,.compare td{padding:12px 14px;font-size:14px}}
+
+/* Features */
+.features{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+@media (max-width:960px){.features{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:620px){.features{grid-template-columns:1fr}}
+.card{position:relative;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:26px;transition:border-color .2s ease,transform .2s ease,box-shadow .2s ease}
+.card:hover{border-color:var(--border-strong);transform:translateY(-2px);box-shadow:0 18px 40px -24px var(--glow)}
+.card h3{font-size:17.5px;font-weight:700;margin-top:16px}
+.card p{color:var(--text-2);font-size:15px;margin-top:8px}
+.icon{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;color:var(--accent-2);
+  background:linear-gradient(180deg,var(--accent-soft),transparent);border:1px solid var(--border-strong)}
+.icon svg{width:22px;height:22px}
+.new-strip{margin-top:28px;border-radius:var(--radius);padding:24px 26px;border:1px solid rgba(75,139,255,.35);
+  background:linear-gradient(120deg,rgba(75,139,255,.16),rgba(155,123,255,.08) 60%,transparent)}
+.new-strip h3{font-size:16px;font-weight:700;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.new-strip h3 b{background:var(--accent-strong);color:#fff;font-size:11.5px;padding:2px 8px;border-radius:999px;letter-spacing:.04em}
+.new-list{list-style:none;padding:0;margin:16px 0 0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+@media (max-width:820px){.new-list{grid-template-columns:1fr}}
+.new-list li{display:flex;gap:12px;align-items:flex-start;color:var(--text-2);font-size:15px}
+.new-list li strong{color:var(--text);display:block;font-weight:600}
+.new-list .icon{width:36px;height:36px;border-radius:10px;flex:none}
+.new-list .icon svg{width:18px;height:18px}
+
+/* Steps */
+.steps{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;counter-reset:step}
+@media (max-width:900px){.steps{grid-template-columns:1fr}}
+.step{position:relative;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:28px 26px 26px}
+.step-num{display:inline-grid;place-items:center;width:38px;height:38px;border-radius:50%;font-weight:800;font-size:16px;color:#fff;
+  background:linear-gradient(180deg,#5c97ff,#3b7bf0);box-shadow:0 6px 18px -6px var(--glow)}
+.step h3{font-size:19px;font-weight:700;margin-top:18px}
+.step p{color:var(--text-2);font-size:15px;margin-top:10px}
+.step .time{display:inline-block;margin-top:14px;font-size:12.5px;font-weight:600;color:var(--text-3);background:var(--surface-2);border:1px solid var(--border);padding:3px 10px;border-radius:999px}
+.step a.more{display:inline-flex;align-items:center;gap:6px;margin-top:14px;font-weight:600;font-size:14.5px}
+.step a.more svg{width:15px;height:15px}
+.note{margin-top:22px;display:flex;gap:12px;align-items:flex-start;padding:16px 18px;border-radius:12px;background:var(--surface);border:1px dashed var(--border-strong);color:var(--text-2);font-size:14.5px}
+.note svg{width:20px;height:20px;color:var(--accent-2);flex:none;margin-top:2px}
+.note strong{color:var(--text)}
+
+/* Gallery */
+.tabs{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin:0 auto 26px;padding:6px;border-radius:14px;background:var(--surface);border:1px solid var(--border);width:fit-content;max-width:100%}
+.tab{font:inherit;font-size:14.5px;font-weight:600;color:var(--text-2);background:transparent;border:0;padding:9px 16px;border-radius:10px;cursor:pointer}
+.tab:hover{color:var(--text);background:var(--surface-2)}
+.tab[aria-selected="true"]{color:#fff;background:var(--accent-strong);box-shadow:0 6px 16px -8px var(--glow)}
+.panel{max-width:1040px;margin:0 auto}
+.panel + .panel{margin-top:40px}
+.js .panel + .panel{margin-top:0}
+.js .panel[hidden]{display:none}
+.panel figcaption{text-align:center;color:var(--text-2);font-size:15px;margin-top:18px}
+.panel figcaption strong{color:var(--text)}
+.panel figure{margin:0}
+
+/* Privacy */
+.privacy{display:grid;grid-template-columns:1.05fr 1fr;gap:48px;align-items:center}
+@media (max-width:900px){.privacy{grid-template-columns:1fr;gap:36px}}
+.privacy .section-head{text-align:left;margin:0}
+.checks{list-style:none;padding:0;margin:26px 0 0;display:grid;gap:14px}
+.checks li{display:flex;gap:12px;color:var(--text-2);font-size:15.5px}
+.checks li strong{color:var(--text)}
+.checks svg{width:22px;height:22px;flex:none;color:var(--good);margin-top:1px}
+.flow{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:30px;box-shadow:var(--shadow)}
+.flow-title{font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-3)}
+.flow-row{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:22px}
+.node{flex:1;min-width:0;text-align:center;padding:16px 8px;border-radius:14px;background:var(--surface-2);border:1px solid var(--border)}
+.node svg{width:28px;height:28px;margin:0 auto;color:var(--accent-2)}
+.node span{display:block;margin-top:8px;font-size:13.5px;font-weight:600;color:var(--text)}
+.node small{display:block;font-size:12px;color:var(--text-3)}
+.arrow{flex:none;color:var(--text-3)}
+.arrow svg{width:20px;height:20px}
+.blocked{margin-top:22px;display:grid;gap:10px}
+.blocked div{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--text-2);padding:10px 14px;border-radius:10px;background:var(--surface-2);border:1px solid var(--border)}
+.blocked svg{width:18px;height:18px;color:var(--bad);flex:none}
+.scope{margin-top:18px;font-size:13px;color:var(--text-3)}
+
+/* FAQ */
+.faq{max-width:820px;margin:0 auto;display:grid;gap:12px}
+.faq details{background:var(--surface);border:1px solid var(--border);border-radius:14px;transition:border-color .2s ease}
+.faq details[open]{border-color:var(--border-strong)}
+.faq summary{list-style:none;cursor:pointer;padding:20px 22px;font-weight:600;font-size:16.5px;display:flex;justify-content:space-between;align-items:center;gap:16px;border-radius:14px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary h3{font-size:inherit;font-weight:inherit;letter-spacing:-.01em;line-height:1.4}
+.faq summary .chev{flex:none;width:28px;height:28px;border-radius:8px;display:grid;place-items:center;background:var(--surface-2);color:var(--text-2);transition:transform .25s ease}
+.faq summary .chev svg{width:16px;height:16px}
+.faq details[open] .chev{transform:rotate(180deg);color:var(--accent-2)}
+.faq .answer{padding:0 22px 20px;color:var(--text-2);font-size:15.5px}
+
+/* Final CTA */
+.final{position:relative;overflow:hidden;text-align:center;border-radius:24px;padding:64px 24px;border:1px solid var(--border-strong);
+  background:radial-gradient(600px 300px at 50% 0%,rgba(75,139,255,.28),transparent 70%),var(--surface)}
+.final svg.big{width:56px;height:56px;margin:0 auto}
+.final h2{font-size:clamp(28px,4.4vw,46px);font-weight:800;margin-top:18px}
+.final p{color:var(--text-2);font-size:17.5px;max-width:560px;margin:14px auto 0}
+
+/* Footer */
+footer{border-top:1px solid var(--border);padding:44px 0 36px;margin-top:96px;color:var(--text-3);font-size:14.5px}
+.foot{display:flex;justify-content:space-between;gap:28px;flex-wrap:wrap;align-items:flex-start}
+.foot .brand-by{font-size:14px}
+.foot-links{display:flex;flex-wrap:wrap;gap:6px 22px;list-style:none;padding:0;margin:0}
+.foot-links a{color:var(--text-2)}
+.foot-links a:hover{color:var(--accent-2)}
+.foot-bottom{margin-top:28px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:13.5px}
+.foot-bottom a{color:var(--text-2);font-weight:600}
+
+/* Reveal */
+.js .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+.js .reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition:none!important;animation:none!important}
+  .js .reveal{opacity:1;transform:none}
+}
+@media (max-width:600px){
+  .hero{padding:48px 0 24px}
+  .section{padding:72px 0}
+  .wrap{padding:0 16px}
+  .cta-row .btn{width:100%}
+  .card,.step{padding:22px}
+  .flow{padding:22px 16px}
+  .node{padding:12px 4px}
+  .node span{font-size:12.5px}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3.2 4.8 6v6.1c0 4.3 3 8.1 7.2 9.2 4.2-1.1 7.2-4.9 7.2-9.2V6z" fill="currentColor" fill-opacity=".16" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="m9.2 12.2 2 2 3.6-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="currentColor" fill-opacity=".15"/><path d="m8 12.3 2.6 2.6L16 9.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="currentColor" fill-opacity=".15"/><path d="m9 9 6 6m0-6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-windows" viewBox="0 0 24 24"><path fill="currentColor" d="M3 5.5 10.5 4.5v7H3zm8.5-1.15L21 3v8.5h-9.5zM3 12.5h7.5v7L3 18.5zm8.5 0H21V21l-9.5-1.35z"/></symbol>
+    <symbol id="i-github" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49l-.01-1.9c-2.78.62-3.37-1.21-3.37-1.21-.46-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.9 1.57 2.35 1.12 2.92.85.09-.66.35-1.12.64-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.04 1.03-2.76-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05a9.4 9.4 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.64 1.03 2.76 0 3.94-2.34 4.81-4.57 5.06.36.32.68.94.68 1.9l-.01 2.81c0 .27.18.6.69.49A10.26 10.26 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 3.5 2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9l-5.2 2.7 1-5.8-4.3-4.1 5.9-.9z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-chev" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  </defs>
+</svg>
+
+<header class="nav">
+  <div class="wrap">
+    <div class="brand">
+      <a href="#top" class="brand-logo" aria-label="Google Drive Backup Downloader, back to top"><svg aria-hidden="true" style="color:var(--accent)"><use href="#i-shield"/></svg></a>
+      <span class="brand-text">
+        <a class="brand-name" href="#top">Drive Backup Downloader</a>
+        <span class="brand-by">by <a href="https://shimanto.xyz" rel="author">shimanto.xyz</a></span>
+      </span>
+    </div>
+    <nav aria-label="Primary" class="nav-main">
+      <ul class="nav-links">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#how-it-works">How it works</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+    </nav>
+    <div class="nav-actions">
+      <a class="btn btn-ghost btn-sm star-btn" href="https://github.com/shimentosh/google-drive-backup-downloader" aria-label="Star Google Drive Backup Downloader on GitHub">
+        <svg aria-hidden="true"><use href="#i-github"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg>Star
+      </a>
+      <a class="btn btn-primary btn-sm" href="https://github.com/shimentosh/google-drive-backup-downloader/releases/latest">
+        <svg aria-hidden="true"><use href="#i-windows"/></svg><span class="dl-label">Download</span><span class="sr-only"> for Windows</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" id="top" aria-labelledby="hero-title">
+    <div class="grid-bg" aria-hidden="true"></div>
+    <div class="wrap">
+      <a class="pill" href="https://github.com/shimentosh/google-drive-backup-downloader/releases/latest"><b>v1.1.0</b> Keeps your PC awake &amp; notifies when done</a>
+      <h1 id="hero-title">Back up your <span class="grad">entire Google Drive</span> to your PC</h1>
+      <p class="lede">Google Drive Backup Downloader copies your whole Drive to a local folder or external disk in one click &mdash; same folder structure, resumable downloads, and later runs fetch only what changed.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary btn-lg" href="https://github.com/shimentosh/google-drive-backup-downloader/releases/latest">
+          <svg aria-hidden="true"><use href="#i-windows"/></svg>Download for Windows
+        </a>
+        <a class="btn btn-ghost btn-lg" href="https://github.com/shimentosh/google-drive-backup-downloader">
+          <svg aria-hidden="true"><use href="#i-github"/></svg>View on GitHub
+        </a>
+      </div>
+      <ul class="trust" aria-label="Highlights">
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg>Free &amp; open source</li>
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg>Read-only access</li>
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg>No uploads</li>
+      </ul>
+      <p class="meta-note">Windows 10 / 11 &middot; MIT license &middot; Version 1.1.0</p>
+
+      <div class="shot-wrap reveal">
+        <div class="window">
+          <div class="window-bar" aria-hidden="true">
+            <svg class="mini" style="color:var(--accent)"><use href="#i-shield"/></svg>
+            <span class="title">Google Drive Backup Downloader</span>
+            <span class="win-ctrl">
+              <span><svg viewBox="0 0 12 12"><path d="M1 6h10" stroke="currentColor" stroke-width="1.2"/></svg></span>
+              <span><svg viewBox="0 0 12 12"><rect x="1.5" y="1.5" width="9" height="9" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></span>
+              <span><svg viewBox="0 0 12 12"><path d="m1.5 1.5 9 9m0-9-9 9" stroke="currentColor" stroke-width="1.2"/></svg></span>
+            </span>
+          </div>
+          <picture>
+            <source srcset="assets/screenshots/overview-light.png" media="(prefers-color-scheme: light)">
+            <img src="assets/screenshots/overview.png" width="1280" height="900" fetchpriority="high" decoding="async"
+                 alt="Google Drive Backup Downloader overview screen showing the connected Drive, file and folder counts, total size and backup status">
+          </picture>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="compare" aria-labelledby="compare-title">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Google Takeout alternative</span>
+        <h2 id="compare-title">A real backup, not a pile of zip files</h2>
+        <p>Takeout is built for one-off exports. This app is built to keep an up-to-date copy of your Drive on a disk you own.</p>
+      </div>
+      <div class="table-scroll reveal" role="region" aria-labelledby="compare-title" tabindex="0">
+        <table class="compare">
+          <caption class="sr-only">Google Drive Backup Downloader compared with Google Takeout</caption>
+          <thead>
+            <tr><th scope="col"><span class="sr-only">Capability</span></th><th scope="col" class="us">Drive Backup Downloader</th><th scope="col">Google Takeout</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">What you get</th>
+              <td class="us"><span class="ic yes"><svg aria-hidden="true"><use href="#i-check"/></svg></span>Normal folders, mirroring your Drive exactly</td>
+              <td><span class="ic no"><svg aria-hidden="true"><use href="#i-x"/></svg></span>Zip archives you download and extract</td></tr>
+            <tr><th scope="row">Next backup</th>
+              <td class="us"><span class="ic yes"><svg aria-hidden="true"><use href="#i-check"/></svg></span>Only new and changed files</td>
+              <td><span class="ic no"><svg aria-hidden="true"><use href="#i-x"/></svg></span>Request a full export again</td></tr>
+            <tr><th scope="row">Interrupted download</th>
+              <td class="us"><span class="ic yes"><svg aria-hidden="true"><use href="#i-check"/></svg></span>Resumes each file from the exact byte</td>
+              <td><span class="ic no"><svg aria-hidden="true"><use href="#i-x"/></svg></span>Start that archive over</td></tr>
+            <tr><th scope="row">Integrity check</th>
+              <td class="us"><span class="ic yes"><svg aria-hidden="true"><use href="#i-check"/></svg></span>Size + MD5 verified per file</td>
+              <td><span class="ic no"><svg aria-hidden="true"><use href="#i-x"/></svg></span>Up to you</td></tr>
+            <tr><th scope="row">Waiting</th>
+              <td class="us"><span class="ic yes"><svg aria-hidden="true"><use href="#i-check"/></svg></span>Starts immediately, live progress</td>
+              <td><span class="ic no"><svg aria-hidden="true"><use href="#i-x"/></svg></span>Wait for Google to prepare the export</td></tr>
+            <tr><th scope="row">Destination</th>
+              <td class="us"><span class="ic yes"><svg aria-hidden="true"><use href="#i-check"/></svg></span>Straight to any disk, external drive or network path</td>
+              <td>Browser downloads folder, then move it</td></tr>
+            <tr><th scope="row">Cost</th>
+              <td class="us"><span class="ic yes"><svg aria-hidden="true"><use href="#i-check"/></svg></span>Free, open source (MIT)</td>
+              <td><span class="ic yes"><svg aria-hidden="true"><use href="#i-check"/></svg></span>Free</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt" id="features" aria-labelledby="features-title">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Features</span>
+        <h2 id="features-title">Everything a full Drive backup needs</h2>
+        <p>Built for big Drives, flaky connections and people who want their files in plain folders they can open years from now.</p>
+      </div>
+      <div class="features">
+        <article class="card reveal">
+          <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18a4.5 4.5 0 0 1-.6-8.96A6 6 0 0 1 18 8.5a4 4 0 0 1-.5 9.5"/><path d="M12 11v9m-3.5-3.5L12 20l3.5-3.5"/></svg></div>
+          <h3>Whole Drive in one click</h3>
+          <p>No picking folders one at a time. Press <em>Back Up Entire Drive</em> and everything comes down.</p>
+        </article>
+        <article class="card reveal">
+          <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6.5A1.5 1.5 0 0 1 4.5 5H9l2 2h4.5A1.5 1.5 0 0 1 17 8.5V10"/><path d="M3 6.5V17a1.5 1.5 0 0 0 1.5 1.5H8"/><path d="M11 12.5a1.5 1.5 0 0 1 1.5-1.5h2.5l1.5 1.5h3A1.5 1.5 0 0 1 21 14v4.5a1.5 1.5 0 0 1-1.5 1.5h-7A1.5 1.5 0 0 1 11 18.5z"/></svg></div>
+          <h3>Mirrors your folders exactly</h3>
+          <p><code>Videos/YouTube/2026/video3.mp4</code> lands at <code>D:\Backup\Videos\YouTube\2026\video3.mp4</code>. Nothing is flattened.</p>
+        </article>
+        <article class="card reveal">
+          <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h3l3-7 4 14 3-7h5"/></svg></div>
+          <h3>Streams huge files</h3>
+          <p>A 40&nbsp;GB video uses the same memory as a 40&nbsp;KB one &mdash; bytes go straight from the network to disk in chunks.</p>
+        </article>
+        <article class="card reveal">
+          <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 1 1-2.34-5.66"/><path d="M20 4v5h-5"/></svg></div>
+          <h3>Resumes where it stopped</h3>
+          <p>Network drop, crash or pause: partial files continue from the exact byte using HTTP <code>Range</code> requests.</p>
+        </article>
+        <article class="card reveal">
+          <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"/><path d="m3 13 9 5 9-5"/></svg></div>
+          <h3>Incremental by default</h3>
+          <p>Point it at the same folder next week and it skips unchanged files, fetching only what&rsquo;s new or modified.</p>
+        </article>
+        <article class="card reveal">
+          <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.4 1.8 3-.1.9 2.9 2.4 1.8-.9 2.8.9 2.8-2.4 1.8-.9 2.9-3-.1L12 21l-2.4-1.8-3 .1-.9-2.9-2.4-1.8.9-2.8-.9-2.8 2.4-1.8.9-2.9 3 .1z"/><path d="m8.8 12.2 2.2 2.2 4.2-4.4"/></svg></div>
+          <h3>Verified, not assumed</h3>
+          <p>Every file is checked by size, plus the MD5 checksum Drive publishes. Only then is <code>.part</code> renamed to the real name.</p>
+        </article>
+        <article class="card reveal">
+          <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg></div>
+          <h3>Exports Google Workspace files</h3>
+          <p>Docs &rarr; DOCX/PDF, Sheets &rarr; XLSX/CSV, Slides &rarr; PPTX/PDF, Drawings &rarr; PNG/SVG/PDF.</p>
+        </article>
+        <article class="card reveal">
+          <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M10 11v6M14 11v6"/><path d="M6 7l1 12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2l1-12M9 7V4h6v3"/><path d="M3 3l18 18"/></svg></div>
+          <h3>Never deletes local files</h3>
+          <p>Not when a file disappears from Drive, not on cancel, not on disconnect. Removing anything is always your call.</p>
+        </article>
+        <article class="card reveal">
+          <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9 2.6 17.2A2 2 0 0 0 4.3 20h15.4a2 2 0 0 0 1.7-2.8L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg></div>
+          <h3>Keeps going past failures</h3>
+          <p>One bad file never stops the run. Failures get a readable reason, and <em>Retry failed</em> re-queues them all.</p>
+        </article>
+        <article class="card reveal">
+          <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M16 4.6a3.5 3.5 0 0 1 0 6.8M18 14a6.5 6.5 0 0 1 3.5 6"/></svg></div>
+          <h3>Shared drives &amp; shared with me</h3>
+          <p>Optionally include shared drives and files shared with you, each placed in its own clearly named folder.</p>
+        </article>
+        <article class="card reveal">
+          <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></div>
+          <h3>1&ndash;16 parallel downloads</h3>
+          <p>Tune concurrency to your connection. A built-in rate limiter and backoff keep you inside Google&rsquo;s quotas.</p>
+        </article>
+        <article class="card reveal">
+          <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9z"/></svg></div>
+          <h3>Dark &amp; light theme</h3>
+          <p>A clean native-feeling interface with live progress, speed, ETA and a per-file queue.</p>
+        </article>
+      </div>
+
+      <div class="new-strip reveal">
+        <h3 id="new-title"><b>NEW IN 1.1</b> Set it running and walk away</h3>
+        <ul class="new-list">
+          <li><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/><path d="M10 8.5h4l-4 4h4"/></svg></span><span><strong>Keeps your PC awake</strong>Windows sleep no longer interrupts long backups. A paused backup lets it sleep normally.</span></li>
+          <li><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg></span><span><strong>Notifies you when done</strong>A desktop notification and taskbar flash when a backup finishes in the background.</span></li>
+          <li><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="15" width="19" height="5" rx="1.5"/><path d="M6 17.5h7"/><path d="M5 11V9M9.5 11V6M14 11V8M18.5 11V4"/></svg></span><span><strong>Progress on the taskbar</strong>The window title shows the percentage backed up, so you can check at a glance.</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="how-it-works" aria-labelledby="how-title">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">How it works</span>
+        <h2 id="how-title">Three steps to a full Drive backup</h2>
+        <p>A one-time setup, then every backup after that is a single click.</p>
+      </div>
+      <ol class="steps">
+        <li class="step reveal">
+          <span class="step-num" aria-hidden="true">1</span>
+          <h3>Create your free Google OAuth client</h3>
+          <p>In Google Cloud Console, enable the Drive API and create a <strong>Desktop app</strong> OAuth client. Download <code>credentials.json</code>. It&rsquo;s free and only done once.</p>
+          <span class="time">About 5 minutes, one time</span><br>
+          <a class="more" href="https://github.com/shimentosh/google-drive-backup-downloader#google-cloud-setup">Step-by-step setup guide <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </li>
+        <li class="step reveal">
+          <span class="step-num" aria-hidden="true">2</span>
+          <h3>Download and connect</h3>
+          <p>Run the app and click <strong>Connect Google Drive</strong>. You approve read-only access on Google&rsquo;s own page in your browser &mdash; the app never sees your password.</p>
+          <span class="time">Windows 10 / 11</span><br>
+          <a class="more" href="https://github.com/shimentosh/google-drive-backup-downloader/releases/latest">Get the latest release <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </li>
+        <li class="step reveal">
+          <span class="step-num" aria-hidden="true">3</span>
+          <h3>Pick a folder and back up</h3>
+          <p>Choose any disk, external drive or network path. The Drive is scanned, free space is checked, then hit <strong>Back Up Entire Drive</strong> and watch it go.</p>
+          <span class="time">Re-run anytime: only changes download</span>
+        </li>
+      </ol>
+      <div class="note reveal">
+        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg>
+        <p><strong>First launch:</strong> the .exe isn&rsquo;t code-signed, so Windows SmartScreen may say &ldquo;Windows protected your PC&rdquo;. Click <strong>More info &rarr; Run anyway</strong>. Google will also show &ldquo;App isn&rsquo;t verified&rdquo; for your personal client &mdash; choose <strong>Advanced &rarr; Go to&hellip;</strong>, which is expected because the client is yours.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt" id="screenshots" aria-labelledby="shots-title">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Screenshots</span>
+        <h2 id="shots-title">See it in action</h2>
+        <p>From first sign-in to a finished backup.</p>
+      </div>
+      <div class="tabs" role="tablist" aria-label="App screens" hidden data-tabs>
+        <button class="tab" role="tab" id="tab-overview" aria-controls="panel-overview" aria-selected="true">Overview</button>
+        <button class="tab" role="tab" id="tab-backup" aria-controls="panel-backup" aria-selected="false" tabindex="-1">Backup</button>
+        <button class="tab" role="tab" id="tab-setup" aria-controls="panel-setup" aria-selected="false" tabindex="-1">Setup</button>
+        <button class="tab" role="tab" id="tab-settings" aria-controls="panel-settings" aria-selected="false" tabindex="-1">Settings</button>
+        <button class="tab" role="tab" id="tab-welcome" aria-controls="panel-welcome" aria-selected="false" tabindex="-1">Welcome</button>
+      </div>
+
+      <div class="panel reveal" id="panel-overview" role="tabpanel" aria-labelledby="tab-overview">
+        <figure>
+          <div class="window"><picture>
+            <source srcset="assets/screenshots/overview-light.png" media="(prefers-color-scheme: light)">
+            <img src="assets/screenshots/overview.png" width="1280" height="900" loading="lazy" decoding="async" alt="Overview page with Drive totals, last backup status and a Resume backup action">
+          </picture></div>
+          <figcaption><strong>Overview.</strong> Your Drive at a glance: files, folders, total size and backup status.</figcaption>
+        </figure>
+      </div>
+      <div class="panel" id="panel-backup" role="tabpanel" aria-labelledby="tab-backup">
+        <figure>
+          <div class="window"><picture>
+            <source srcset="assets/screenshots/backup-light.png" media="(prefers-color-scheme: light)">
+            <img src="assets/screenshots/backup.png" width="1280" height="900" loading="lazy" decoding="async" alt="Backup page showing overall progress, speed, ETA and a live queue of files downloading">
+          </picture></div>
+          <figcaption><strong>Backup.</strong> Overall progress, speed, ETA and a live per-file queue. Pause, resume or cancel anytime.</figcaption>
+        </figure>
+      </div>
+      <div class="panel" id="panel-setup" role="tabpanel" aria-labelledby="tab-setup">
+        <figure>
+          <div class="window"><picture>
+            <source srcset="assets/screenshots/setup-light.png" media="(prefers-color-scheme: light)">
+            <img src="assets/screenshots/setup.png" width="1280" height="900" loading="lazy" decoding="async" alt="Backup setup page with destination folder, amount left to download and free disk space check">
+          </picture></div>
+          <figcaption><strong>Setup.</strong> Pick the destination and review what&rsquo;s left to download against free space before you start.</figcaption>
+        </figure>
+      </div>
+      <div class="panel" id="panel-settings" role="tabpanel" aria-labelledby="tab-settings">
+        <figure>
+          <div class="window"><picture>
+            <source srcset="assets/screenshots/settings-light.png" media="(prefers-color-scheme: light)">
+            <img src="assets/screenshots/settings.png" width="1280" height="900" loading="lazy" decoding="async" alt="Settings page with concurrent downloads, export formats, theme and keep-awake options">
+          </picture></div>
+          <figcaption><strong>Settings.</strong> Concurrency, export formats, theme and the new keep-awake option.</figcaption>
+        </figure>
+      </div>
+      <div class="panel" id="panel-welcome" role="tabpanel" aria-labelledby="tab-welcome">
+        <figure>
+          <div class="window"><picture>
+            <source srcset="assets/screenshots/welcome-light.png" media="(prefers-color-scheme: light)">
+            <img src="assets/screenshots/welcome.png" width="1280" height="900" loading="lazy" decoding="async" alt="Welcome screen with a Connect Google Drive button">
+          </picture></div>
+          <figcaption><strong>Welcome.</strong> Connect your Google account securely in your browser.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="privacy" aria-labelledby="privacy-title">
+    <div class="wrap privacy">
+      <div class="reveal">
+        <div class="section-head">
+          <span class="eyebrow">Privacy &amp; security</span>
+          <h2 id="privacy-title">Your files go to one place: your disk</h2>
+          <p>Data flows Google &rarr; Google Drive API &rarr; your PC. That is the only path it takes.</p>
+        </div>
+        <ul class="checks">
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><strong>Read-only access.</strong> Requests only the <code>drive.readonly</code> scope &mdash; it cannot modify or delete anything in your Drive.</span></li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><strong>Your password is never seen.</strong> Sign-in happens entirely in your browser, on Google&rsquo;s own domain.</span></li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><strong>Tokens stay protected.</strong> Stored in Windows Credential Manager and masked out of every log.</span></li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><strong>No telemetry, no analytics.</strong> The only host contacted is Google&rsquo;s own API.</span></li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><strong>Your own OAuth client.</strong> Access is never shared with or routed through anyone else.</span></li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><strong>Open source.</strong> Every line is on GitHub for you to read, audit or build yourself.</span></li>
+        </ul>
+      </div>
+      <div class="flow reveal" role="figure" aria-label="Data flow: Google Drive to the read-only Drive API to your PC">
+        <div class="flow-title">Where your data goes</div>
+        <div class="flow-row">
+          <div class="node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 18a4.5 4.5 0 0 1-.6-8.96A6 6 0 0 1 18 8.5a4 4 0 0 1-.5 9.5z"/></svg><span>Google Drive</span><small>your account</small></div>
+          <div class="arrow" aria-hidden="true"><svg><use href="#i-arrow"/></svg></div>
+          <div class="node"><svg aria-hidden="true"><use href="#i-shield"/></svg><span>Drive API</span><small>read-only</small></div>
+          <div class="arrow" aria-hidden="true"><svg><use href="#i-arrow"/></svg></div>
+          <div class="node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg><span>Your PC</span><small>or external disk</small></div>
+        </div>
+        <div class="blocked">
+          <div><svg aria-hidden="true"><use href="#i-x"/></svg>No third-party servers</div>
+          <div><svg aria-hidden="true"><use href="#i-x"/></svg>No uploads, no cloud relay</div>
+          <div><svg aria-hidden="true"><use href="#i-x"/></svg>No tracking or usage data</div>
+        </div>
+        <p class="scope">Scope requested: <code>https://www.googleapis.com/auth/drive.readonly</code></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt" id="faq" aria-labelledby="faq-title">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">FAQ</span>
+        <h2 id="faq-title">Frequently asked questions</h2>
+      </div>
+      <div class="faq">
+        <details class="reveal">
+          <summary><h3>Is Google Drive Backup Downloader safe to use?</h3><span class="chev" aria-hidden="true"><svg><use href="#i-chev"/></svg></span></summary>
+          <p class="answer">Yes. It asks Google only for read-only access (the drive.readonly scope), so it cannot modify or delete anything in your Drive. You sign in on Google’s own page in your browser, so the app never sees your password. Your sign-in token is stored in Windows Credential Manager, and the app contacts no server other than Google’s own API: no telemetry, no analytics. The full source code is on <a href="https://github.com/shimentosh/google-drive-backup-downloader">GitHub</a>.</p>
+        </details>
+        <details class="reveal">
+          <summary><h3>Is it really free?</h3><span class="chev" aria-hidden="true"><svg><use href="#i-chev"/></svg></span></summary>
+          <p class="answer">Yes. It is free and open source under the MIT license, with no paid tier, no sign-up and no ads. Creating the Google Cloud project it needs is free as well.</p>
+        </details>
+        <details class="reveal">
+          <summary><h3>Does it download Google Docs, Sheets and Slides?</h3><span class="chev" aria-hidden="true"><svg><use href="#i-chev"/></svg></span></summary>
+          <p class="answer">Yes. Google Workspace files are exported to regular formats: Docs to DOCX or PDF, Sheets to XLSX or CSV, Slides to PPTX or PDF, and Drawings to PNG, SVG or PDF. Google Forms, Sites and My Maps have no export format in the Drive API, so they are reported with the reason instead of being silently skipped.</p>
+        </details>
+        <details class="reveal">
+          <summary><h3>How is it different from Google Takeout?</h3><span class="chev" aria-hidden="true"><svg><use href="#i-chev"/></svg></span></summary>
+          <p class="answer">Takeout packs your Drive into zip archives that you have to request, wait for, download and extract, and you start over every time. Google Drive Backup Downloader copies your Drive straight into a normal folder with the same structure, resumes interrupted downloads, and on later runs only fetches new and changed files.</p>
+        </details>
+        <details class="reveal">
+          <summary><h3>Can I back up to an external hard drive or a NAS?</h3><span class="chev" aria-hidden="true"><svg><use href="#i-chev"/></svg></span></summary>
+          <p class="answer">Yes. The destination can be any local disk, an external HDD or SSD, or a network path. Before starting, the app checks that there is enough free space. If the drive disconnects mid-backup, reconnect it and resume: completed and partially downloaded files are still there.</p>
+        </details>
+        <details class="reveal">
+          <summary><h3>What happens if my internet connection drops?</h3><span class="chev" aria-hidden="true"><svg><use href="#i-chev"/></svg></span></summary>
+          <p class="answer">Nothing is lost. Each file downloads into a temporary .part file and continues from the exact byte where it stopped, using HTTP Range requests, whether the network dropped, the app crashed or you paused. Temporary errors are retried automatically with backoff, and files that still fail are listed so you can retry them.</p>
+        </details>
+        <details class="reveal">
+          <summary><h3>Does it work on Mac or Linux?</h3><span class="chev" aria-hidden="true"><svg><use href="#i-chev"/></svg></span></summary>
+          <p class="answer">The ready-to-run download is for Windows 10 and 11. The app is written in Python, and its code also runs on macOS and Linux if you run it from source with Python 3.12 or newer.</p>
+        </details>
+        <details class="reveal">
+          <summary><h3>Why do I need to create my own Google Cloud credentials?</h3><span class="chev" aria-hidden="true"><svg><use href="#i-chev"/></svg></span></summary>
+          <p class="answer">The app talks to Google directly from your PC, with no server in between, so it signs in with an OAuth client that belongs to you. Creating one is a free, one-time setup that takes about five minutes, and it means your access is never routed through anyone else.</p>
+        </details>
+        <details class="reveal">
+          <summary><h3>Why does Windows show a SmartScreen warning?</h3><span class="chev" aria-hidden="true"><svg><use href="#i-chev"/></svg></span></summary>
+          <p class="answer">The .exe is not code-signed, so Windows SmartScreen may say “Windows protected your PC” the first time you run it. Click More info, then Run anyway. You can also review the source code or build the .exe yourself from the repository.</p>
+        </details>
+        <details class="reveal">
+          <summary><h3>Will it ever delete my files?</h3><span class="chev" aria-hidden="true"><svg><use href="#i-chev"/></svg></span></summary>
+          <p class="answer">No. It cannot change anything in your Google Drive because it only has read-only access, and it never deletes local files either: not when a file disappears from Drive, not on cancel and not on disconnect. Removing files is always your decision.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="final-title">
+    <div class="wrap">
+      <div class="final reveal">
+        <svg class="big" aria-hidden="true" style="color:var(--accent)"><use href="#i-shield"/></svg>
+        <h2 id="final-title">Own a copy of your Google Drive</h2>
+        <p>Free, open source and read-only. Set it up once, then keep your backup current with a single click.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary btn-lg" href="https://github.com/shimentosh/google-drive-backup-downloader/releases/latest"><svg aria-hidden="true"><use href="#i-windows"/></svg>Download for Windows</a>
+          <a class="btn btn-ghost btn-lg" href="https://github.com/shimentosh/google-drive-backup-downloader#google-cloud-setup">Read the setup guide <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
+        <p class="meta-note">Version 1.1.0 &middot; Windows 10 / 11 &middot; MIT license</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a class="brand" href="#top">
+          <svg aria-hidden="true" style="color:var(--accent)"><use href="#i-shield"/></svg>
+          <span class="brand-text"><span class="brand-name">Google Drive Backup Downloader</span></span>
+        </a>
+        <p class="brand-by" style="margin-top:10px">Made by <a href="https://shimanto.xyz" rel="author">shimanto.xyz</a></p>
+      </div>
+      <nav aria-label="Footer">
+        <ul class="foot-links">
+          <li><a href="https://github.com/shimentosh/google-drive-backup-downloader">GitHub</a></li>
+          <li><a href="https://github.com/shimentosh/google-drive-backup-downloader/releases">Releases</a></li>
+          <li><a href="https://github.com/shimentosh/google-drive-backup-downloader/issues">Issues</a></li>
+          <li><a href="https://github.com/shimentosh/google-drive-backup-downloader/blob/main/LICENSE">License (MIT)</a></li>
+          <li><a href="https://shimanto.xyz">shimanto.xyz</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; 2026 Shimanto. Released under the MIT License.</span>
+      <span>Not affiliated with or endorsed by Google. Google Drive is a trademark of Google LLC.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // Screenshot tabs
+  var list=document.querySelector('[data-tabs]');
+  if(list){
+    var tabs=[].slice.call(list.querySelectorAll('[role="tab"]'));
+    list.hidden=false;
+    function select(tab,focus){
+      tabs.forEach(function(t){
+        var on=t===tab, p=document.getElementById(t.getAttribute('aria-controls'));
+        t.setAttribute('aria-selected',on?'true':'false');
+        t.tabIndex=on?0:-1;
+        if(p){p.hidden=!on; if(on){p.classList.add('in');}}
+      });
+      if(focus)tab.focus();
+    }
+    tabs.forEach(function(t,i){
+      t.addEventListener('click',function(){select(t,false)});
+      t.addEventListener('keydown',function(e){
+        var n=null;
+        if(e.key==='ArrowRight')n=tabs[(i+1)%tabs.length];
+        else if(e.key==='ArrowLeft')n=tabs[(i-1+tabs.length)%tabs.length];
+        else if(e.key==='Home')n=tabs[0];
+        else if(e.key==='End')n=tabs[tabs.length-1];
+        if(n){e.preventDefault();select(n,true);}
+      });
+    });
+    select(tabs[0],false);
+  }
+
+  // Scroll reveal
+  var els=[].slice.call(document.querySelectorAll('.reveal'));
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce||!('IntersectionObserver' in window)){
+    els.forEach(function(el){el.classList.add('in')});
+  }else{
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}
+      });
+    },{rootMargin:'0px 0px -8% 0px',threshold:0.08});
+    els.forEach(function(el){io.observe(el)});
+  }
+})();
+</script>
+</body>
+</html>

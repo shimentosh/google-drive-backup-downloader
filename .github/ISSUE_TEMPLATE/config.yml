@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Setup help (Google Cloud / OAuth)
+    url: https://github.com/shimentosh/google-drive-backup-downloader#google-cloud-setup
+    about: Most connection problems are covered by the step-by-step guide and the troubleshooting section.
+  - name: Author website
+    url: https://shimanto.xyz
+    about: Other projects by Shimanto
