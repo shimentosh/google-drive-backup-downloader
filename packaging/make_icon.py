@@ -30,10 +30,12 @@ def render_png(size: int, color: str, background: str) -> bytes:
     body = _PATHS["shield"]
     # Stroke weight is scaled down at large sizes so the glyph stays elegant.
     stroke = max(1.2, 1.7 * (48 / size) ** 0.35)
+    # Drop the default stroke width: a second stroke-width attribute makes the
+    # SVG invalid, and Qt then renders an empty glyph.
+    attrs = _STROKE.format(color=color).replace('stroke-width="1.7" ', "")
     svg = (
         f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" '
-        f'width="{size}" height="{size}" '
-        f'{_STROKE.format(color=color).replace("stroke-width=\'1.7\'", "")} '
+        f'width="{size}" height="{size}" {attrs} '
         f'stroke-width="{stroke:.2f}">{body}</svg>'
     )
 
